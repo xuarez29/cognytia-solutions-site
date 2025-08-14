@@ -6,12 +6,10 @@ export default function Footer() {
         <div>© {new Date().getFullYear()} Cognytia Solutions — IA con propósito</div>
         <div className="flex gap-4">
           <p>
-  📧 <a href="mailto:carlos@cognytia.mx" class="underline">carlos@cognytia.mx</a>  
+  📧 <a href="mailto:hola@cognytia.mx" class="underline">hola@cognytia.mx</a>  
   &nbsp;|&nbsp;  
   📞 <a href="tel:+524425955891" class="underline">+52 442 595 5891</a>  
-  &nbsp;|&nbsp;  
-  📅 <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3x99in295C74dyfVB0mxU5wXrcEQxySxh5IiRI9KklhoNQ5nZCR5N1q3SSht1zPstnSkqDhWtc?gv=true" 
-        target="_blank" rel="noopener" class="underline">Agendar reunión</a>
+  &nbsp;
 </p>
 
         </div>
