@@ -38,13 +38,13 @@ export default function NotionParaEmpresas() {
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href={mailto}
-              className="px-6 py-3 rounded-xl bg-emerald-600 text-white font-semibold hover:opacity-90"
+              className="btn-primary"
             >
               Agendar diagnóstico
             </a>
             <a
               href="#servicios"
-              className="px-6 py-3 rounded-xl border border-slate-300 font-semibold hover:bg-slate-50"
+              className="btn-secondary"
             >
               Ver servicios
             </a>
@@ -52,7 +52,7 @@ export default function NotionParaEmpresas() {
         </div>
       </section>
 
-      <section className="container-max py-16">
+      <section className="container-max py-20">
         <h2 className="text-3xl font-extrabold text-brand-dark text-center mb-2">
           Lo que puedes lograr con Notion + CognytIA
         </h2>
@@ -93,7 +93,7 @@ export default function NotionParaEmpresas() {
         </div>
       </section>
 
-      <section id="servicios" className="bg-gray-50 py-16">
+      <section id="servicios" className="bg-gray-50 py-20">
         <div className="container-max">
           <h2 className="text-3xl font-extrabold text-brand-dark mb-8 text-center">
             Nuestros servicios de Notion
@@ -144,7 +144,7 @@ export default function NotionParaEmpresas() {
         </div>
       </section>
 
-      <section className="container-max py-16">
+      <section className="container-max py-20">
         <h2 className="text-3xl font-extrabold text-brand-dark text-center mb-8">
           Cómo implementamos Notion en tu organización
         </h2>
@@ -176,7 +176,7 @@ export default function NotionParaEmpresas() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-20">
         <div className="container-max">
           <h2 className="text-3xl font-extrabold text-brand-dark text-center mb-6">
             Por qué elegir Notion con CognytIA
@@ -194,7 +194,7 @@ export default function NotionParaEmpresas() {
         </div>
       </section>
 
-      <section className="container-max py-16">
+      <section className="container-max py-20">
         <h2 className="text-3xl font-extrabold text-brand-dark text-center mb-6">
           Resultados que medimos
         </h2>
@@ -206,7 +206,7 @@ export default function NotionParaEmpresas() {
         </ul>
       </section>
 
-      <section className="container-max py-16">
+      <section className="container-max py-20">
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-white rounded-2xl shadow-soft p-6">
             <h3 className="text-xl font-semibold mb-2">¿Notion funciona con mis herramientas actuales?</h3>
@@ -226,7 +226,7 @@ export default function NotionParaEmpresas() {
         </div>
       </section>
 
-      <section id="contacto" className="py-16 text-center">
+      <section id="contacto" className="py-20 text-center">
         <div className="container-max">
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Agenda un diagnóstico</h2>
           <p className="text-slate-700 mb-6">
@@ -236,13 +236,13 @@ export default function NotionParaEmpresas() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href={mailto}
-              className="px-6 py-3 rounded-xl border border-slate-300 font-semibold hover:bg-slate-50"
+              className="btn-secondary"
             >
               hola@cognytia.mx
             </a>
             <a
               href="https://wa.me/524425955891"
-              className="px-6 py-3 rounded-xl bg-emerald-600 text-white font-semibold hover:opacity-90"
+              className="btn-primary"
             >
               WhatsApp
             </a>

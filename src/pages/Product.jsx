@@ -7,7 +7,7 @@ export default function Product() {
 
   if (!product) {
     return (
-      <div className="container-max py-16">
+      <div className="container-max py-20">
         <p className="mb-4">Producto no encontrado.</p>
         <Link to="/" className="text-brand-primary underline">Volver al inicio</Link>
       </div>
@@ -75,13 +75,13 @@ export default function Product() {
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-block text-center px-4 py-2 rounded-lg bg-emerald-600 text-white font-semibold hover:opacity-90"
+                className="w-full inline-block text-center btn-primary"
               >
                 💬 Hablar por WhatsApp
               </a>
               <a
                 href={`tel:${phone}`}
-                className="mt-3 w-full inline-block text-center px-4 py-2 rounded-lg border border-slate-300 font-semibold hover:bg-slate-50"
+                className="mt-3 w-full inline-block text-center btn-secondary"
               >
                 📞 Llamada directa
               </a>

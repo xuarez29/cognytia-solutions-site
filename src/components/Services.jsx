@@ -6,7 +6,7 @@ export default function Services() {
     { title: "Soluciones personalizadas", desc: "Desarrollamos sistemas específicos para tus necesidades reales." },
   ]
   return (
-    <section id="servicios" className="bg-gray-50 py-16">
+    <section id="servicios" className="bg-gray-50 py-20">
       <div className="container-max">
         <h2 className="text-3xl font-extrabold text-brand-dark mb-8 text-center">Qué hacemos</h2>
         <div className="grid md:grid-cols-2 gap-6">

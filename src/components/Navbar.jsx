@@ -26,7 +26,7 @@ export default function Navbar() {
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-2 px-4 py-2 rounded-xl bg-emerald-600 text-white font-semibold hover:opacity-90"
+            className="ml-2 btn-primary"
           >
             Solicitar información
           </a>
@@ -57,7 +57,7 @@ export default function Navbar() {
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-4 py-2 rounded-xl bg-emerald-600 text-white font-semibold text-center"
+                className="btn-primary text-center"
                 onClick={() => setOpen(false)}
               >
                 Solicitar información

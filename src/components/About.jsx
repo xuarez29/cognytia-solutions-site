@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section id="quienes" className="container-max py-16">
+    <section id="quienes" className="container-max py-20">
       <div className="grid md:grid-cols-2 gap-10 items-center">
         <div>
           <h2 className="text-3xl font-extrabold text-brand-dark mb-4">Quiénes somos</h2>

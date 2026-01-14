@@ -6,7 +6,7 @@ export default function Contact() {
   const waUrl = `https://wa.me/524425955891?text=${waMsg}`;
 
   return (
-    <section id="contacto" className="py-16 text-center">
+    <section id="contacto" className="py-20 text-center">
       <div className="container-max">
         <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Contacto</h2>
         <p className="text-slate-700 mb-6">
@@ -17,13 +17,13 @@ export default function Contact() {
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-xl bg-emerald-600 text-white font-semibold hover:opacity-90"
+            className="btn-primary"
           >
             💬 Escribir por WhatsApp
           </a>
           <a
             href={`tel:${phone}`}
-            className="px-6 py-3 rounded-xl border border-slate-300 font-semibold hover:bg-slate-50"
+            className="btn-secondary"
           >
             📞 Llamada directa
           </a>
