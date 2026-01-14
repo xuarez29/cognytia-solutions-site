@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -9,15 +10,18 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 backdrop-blur bg-white/70 border-b">
       <div className="container-max flex items-center justify-between h-16">
         {/* Logo */}
-        <a href="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <img src="/images/logo-navbar.png" alt="Cognytia Solutions" className="h-8 md:h-10" />
-        </a>
+        </Link>
 
         {/* Desktop */}
         <nav className="hidden md:flex items-center gap-4">
-          <a href="#servicios" className="text-slate-700 hover:text-slate-900">Servicios</a>
-          <a href="#productos" className="text-slate-700 hover:text-slate-900">Productos</a>
-          <a href="#quienes" className="text-slate-700 hover:text-slate-900">Nosotros</a>
+          <a href="/#servicios" className="text-slate-700 hover:text-slate-900">Servicios</a>
+          <a href="/#productos" className="text-slate-700 hover:text-slate-900">Productos</a>
+          <Link to="/notion-para-empresas" className="text-slate-700 hover:text-slate-900">
+            Notion para empresas
+          </Link>
+          <a href="/#quienes" className="text-slate-700 hover:text-slate-900">Nosotros</a>
           <a
             href={waUrl}
             target="_blank"
@@ -33,17 +37,22 @@ export default function Navbar() {
           className="md:hidden p-2 rounded-lg border"
           onClick={() => setOpen(!open)}
           aria-label="Abrir menú"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           ☰
         </button>
 
         {/* Mobile menu */}
         {open && (
-          <div className="absolute top-16 right-4 left-4 bg-white border rounded-2xl p-4 md:hidden">
+          <div id="mobile-menu" className="absolute top-16 right-4 left-4 bg-white border rounded-2xl p-4 md:hidden">
             <div className="flex flex-col gap-3">
-              <a href="#servicios" onClick={() => setOpen(false)}>Servicios</a>
-              <a href="#productos" onClick={() => setOpen(false)}>Productos</a>
-              <a href="#quienes" onClick={() => setOpen(false)}>Nosotros</a>
+              <a href="/#servicios" onClick={() => setOpen(false)}>Servicios</a>
+              <a href="/#productos" onClick={() => setOpen(false)}>Productos</a>
+              <Link to="/notion-para-empresas" onClick={() => setOpen(false)}>
+                Notion para empresas
+              </Link>
+              <a href="/#quienes" onClick={() => setOpen(false)}>Nosotros</a>
               <a
                 href={waUrl}
                 target="_blank"
