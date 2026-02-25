@@ -180,7 +180,7 @@ export default function Contact() {
                   ¡Mensaje recibido!
                 </h3>
                 <p className="text-brand-text-secondary text-[15px] max-w-xs">
-                  Te respondemos en menos de 48 horas. Si es urgente, escríbenos por WhatsApp.
+                  En breve nos pondremos en contacto contigo. Si lo prefieres, contáctanos directamente por WhatsApp.
                 </p>
               </motion.div>
             ) : (
