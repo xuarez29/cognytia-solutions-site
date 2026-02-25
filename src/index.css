@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-body text-brand-text bg-brand-bg;
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  /* ── Focus-visible global: teclado y tecnologías asistivas ── */
+  /* Oculta el outline por defecto para interacciones con mouse/touch */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Outline visible solo al navegar con teclado */
+  :focus-visible {
+    outline: 2px solid #3DBCB8;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Inputs y textareas: el outline se mantiene interior para no romper el layout */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid #3DBCB8;
+    outline-offset: 0px;
+    border-radius: 6px;
+    box-shadow: 0 0 0 4px rgba(61, 188, 184, 0.12);
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 md:py-28 px-6 md:px-12 lg:px-20 xl:px-32;
+  }
+
+  .section-title {
+    @apply font-heading font-light text-display-sm text-brand-text mb-4;
+  }
+
+  .card-base {
+    @apply rounded-xl border border-[rgba(61,188,184,0.2)] bg-white shadow-card transition-all duration-600;
+  }
+
+  .card-base:hover {
+    @apply shadow-card-hover;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-primary text-white font-body font-medium text-sm transition-all duration-600 hover:bg-teal-600 hover:shadow-teal-md;
+  }
+  .btn-primary:focus-visible {
+    outline: 2px solid #3DBCB8;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px rgba(61, 188, 184, 0.25);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-brand-primary text-brand-primary font-body font-medium text-sm transition-all duration-600 hover:bg-brand-primary hover:text-white;
+  }
+  .btn-outline:focus-visible {
+    outline: 2px solid #3DBCB8;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 4px rgba(61, 188, 184, 0.25);
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 text-brand-text font-body font-medium text-sm transition-all duration-600 hover:text-brand-primary;
+  }
+  .btn-ghost:focus-visible {
+    outline: 2px solid #3DBCB8;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  .dot-grid-bg {
+    background-image: radial-gradient(circle, rgba(61,188,184,0.12) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+}
+
+@layer utilities {
+  .text-gradient-teal {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #3DBCB8 0%, #2a9d9a 100%);
+  }
+}
+
+/* SVG path drawing animations */
+@keyframes drawPath {
+  from {
+    stroke-dashoffset: 600;
+    opacity: 0;
+  }
+  10% { opacity: 1; }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInNode {
+  from { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.path-draw {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: drawPath 2.4s ease-out forwards;
+}
+
+.path-draw-delay-1 { animation-delay: 0.2s; }
+.path-draw-delay-2 { animation-delay: 0.5s; }
+.path-draw-delay-3 { animation-delay: 0.8s; }
+.path-draw-delay-4 { animation-delay: 1.1s; }
+.path-draw-delay-5 { animation-delay: 1.4s; }
+
+.node-appear {
+  opacity: 0;
+  transform-origin: center;
+  animation: fadeInNode 0.4s ease-out forwards;
+}
+
+.node-delay-1 { animation-delay: 0.3s; }
+.node-delay-2 { animation-delay: 0.6s; }
+.node-delay-3 { animation-delay: 0.9s; }
+.node-delay-4 { animation-delay: 1.2s; }
+.node-delay-5 { animation-delay: 1.5s; }
+.node-delay-6 { animation-delay: 1.8s; }
+.node-delay-7 { animation-delay: 2.1s; }
