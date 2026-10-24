@@ -1,89 +1,8 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronDown } from 'lucide-react'
-import { useMediaQuery } from '../hooks/useMediaQuery'
-
-// Animated SVG: nodes connecting, inspired by the logo
-function NodeNetwork() {
-  const nodes = [
-    { cx: 300, cy: 80, r: 6 },
-    { cx: 160, cy: 160, r: 5 },
-    { cx: 380, cy: 200, r: 4 },
-    { cx: 80, cy: 280, r: 7 },
-    { cx: 260, cy: 300, r: 5 },
-    { cx: 420, cy: 340, r: 4 },
-    { cx: 140, cy: 390, r: 6 },
-    { cx: 320, cy: 430, r: 5 },
-    { cx: 60, cy: 430, r: 4 },
-    { cx: 440, cy: 150, r: 3 },
-  ]
-
-  const paths = [
-    { d: 'M 300 80 L 160 160', delay: 0 },
-    { d: 'M 300 80 L 380 200', delay: 1 },
-    { d: 'M 300 80 L 440 150', delay: 2 },
-    { d: 'M 160 160 L 80 280', delay: 1 },
-    { d: 'M 160 160 L 260 300', delay: 2 },
-    { d: 'M 380 200 L 260 300', delay: 3 },
-    { d: 'M 380 200 L 420 340', delay: 2 },
-    { d: 'M 80 280 L 140 390', delay: 3 },
-    { d: 'M 80 280 L 60 430', delay: 4 },
-    { d: 'M 260 300 L 320 430', delay: 3 },
-    { d: 'M 420 340 L 320 430', delay: 4 },
-    { d: 'M 140 390 L 60 430', delay: 5 },
-    { d: 'M 140 390 L 320 430', delay: 5 },
-  ]
-
-  return (
-    <svg
-      viewBox="0 0 500 480"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-full h-full"
-    >
-      {/* Lines */}
-      {paths.map((p, i) => (
-        <path
-          key={i}
-          d={p.d}
-          stroke="#3DBCB8"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          className={`path-draw path-draw-delay-${(p.delay % 5) + 1}`}
-          style={{ opacity: 0 }}
-        />
-      ))}
-
-      {/* Secondary faint lines */}
-      <path d="M 300 80 L 260 300" stroke="#3DBCB8" strokeWidth="1" strokeLinecap="round" opacity="0.2" className="path-draw path-draw-delay-4"/>
-      <path d="M 160 160 L 420 340" stroke="#3DBCB8" strokeWidth="1" strokeLinecap="round" opacity="0.15" className="path-draw path-draw-delay-5"/>
-
-      {/* Nodes */}
-      {nodes.map((n, i) => (
-        <g key={i}>
-          <circle
-            cx={n.cx} cy={n.cy} r={n.r + 5}
-            fill="#3DBCB8" opacity="0.06"
-            className={`node-appear node-delay-${(i % 7) + 1}`}
-          />
-          <circle
-            cx={n.cx} cy={n.cy} r={n.r}
-            fill="#3DBCB8"
-            className={`node-appear node-delay-${(i % 7) + 1}`}
-          />
-        </g>
-      ))}
-
-      {/* Central highlight node */}
-      <circle cx="260" cy="300" r="9" fill="#3DBCB8" opacity="0.15" className="node-appear node-delay-3"/>
-      <circle cx="260" cy="300" r="5" fill="#3DBCB8" className="node-appear node-delay-3"/>
-      <circle cx="260" cy="300" r="2" fill="#0A2E2E" className="node-appear node-delay-3"/>
-    </svg>
-  )
-}
+import LogoAnimation from '../components/LogoAnimation'
 
 export default function Hero() {
-  const isDesktop = useMediaQuery('(min-width: 1024px)')
-
   const scrollToServices = () => {
     document.querySelector('#servicios')?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -105,9 +24,9 @@ export default function Hero() {
       />
 
       <div className="relative w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20 xl:px-32 pt-32 pb-20 lg:pt-40 lg:pb-28">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-16 items-center">
           {/* Left — Text */}
-          <div>
+          <div className="order-2 lg:order-1">
             {/* Tag */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -120,16 +39,6 @@ export default function Hero() {
                 Especialistas en integración de IA
               </span>
             </motion.div>
-
-            {/* Logo hero */}
-            <motion.img
-              src="/logo-hero.png"
-              alt="Cognytia Solutions"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
-              className="w-[90px] md:w-[110px] h-auto object-contain mb-10"
-            />
 
             {/* Headline */}
             <motion.h1
@@ -208,27 +117,33 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right — Node animation (solo desktop) */}
-          {isDesktop && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: 'easeOut', delay: 0.3 }}
-              className="relative flex items-center justify-center"
-            >
-              <div className="relative w-full max-w-[480px] aspect-square">
-                {/* Background circle glow */}
-                <div
-                  className="absolute inset-8 rounded-full"
-                  style={{
-                    background:
-                      'radial-gradient(circle, rgba(61,188,184,0.05) 0%, transparent 70%)',
-                  }}
-                />
-                <NodeNetwork />
-              </div>
-            </motion.div>
-          )}
+          {/* Right — Logo animado */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+            className="order-1 lg:order-2 relative flex items-center justify-start lg:justify-center"
+          >
+            <div className="relative w-[170px] sm:w-[210px] lg:w-full lg:max-w-[460px] aspect-square flex items-center justify-center">
+              {/* Halo */}
+              <div
+                className="absolute -inset-[12%] rounded-full pointer-events-none"
+                style={{ background: 'radial-gradient(circle, rgba(61,188,184,0.13) 0%, rgba(61,188,184,0.04) 45%, transparent 70%)' }}
+              />
+              {/* Órbitas (solo desktop) */}
+              <div className="hidden lg:block absolute inset-0 rounded-full border border-[rgba(61,188,184,0.14)] pointer-events-none" />
+              <motion.div
+                aria-hidden="true"
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 90, ease: 'linear' }}
+                className="hidden lg:block absolute -inset-[7%] rounded-full border border-dashed border-[rgba(61,188,184,0.22)] pointer-events-none motion-reduce:animate-none"
+              >
+                <span className="absolute top-[14%] right-[13%] w-2 h-2 rounded-full bg-brand-primary/60" />
+                <span className="absolute bottom-[9%] left-[22%] w-1.5 h-1.5 rounded-full bg-brand-primary/40" />
+              </motion.div>
+              <LogoAnimation className="relative w-[86%]" />
+            </div>
+          </motion.div>
         </div>
       </div>
 
