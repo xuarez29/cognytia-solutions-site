@@ -144,3 +144,25 @@
 .node-delay-5 { animation-delay: 1.5s; }
 .node-delay-6 { animation-delay: 1.8s; }
 .node-delay-7 { animation-delay: 2.1s; }
+
+/* ── Animación del logo en el Hero (LogoAnimation.jsx) ── */
+.logo-anim:focus-visible { outline-offset: 8px; border-radius: 24px; }
+.logo-anim .la-c { fill: none; stroke-width: 66; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.logo-anim .la-line { fill: none; stroke: #3DBCB8; stroke-width: 16; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.logo-anim .la-lines .la-line { animation: la-draw .7s cubic-bezier(.5,0,.2,1) forwards; }
+.logo-anim .la-node { transform-box: fill-box; transform-origin: center; transform: scale(0); }
+.logo-anim .la-nodes .la-node { animation: la-pop .5s cubic-bezier(.3,1.7,.5,1) forwards; }
+.logo-anim .la-node-filled { fill: #3DBCB8; }
+.logo-anim .la-node-hollow { fill: #fff; stroke: #3DBCB8; stroke-width: 20; }
+.logo-anim .la-ring { fill: none; stroke: #1FB5B0; stroke-width: 6; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.logo-anim .la-pulses .la-ring { animation: la-ring 2.8s ease-out infinite; }
+.logo-anim .la-pulse-group { opacity: 0; transition: opacity .8s; }
+.logo-anim .la-pulses .la-pulse-group { opacity: 1; }
+@keyframes la-draw { to { stroke-dashoffset: 0; } }
+@keyframes la-pop { to { transform: scale(1); } }
+@keyframes la-ring { 0% { opacity: .6; transform: scale(1); } 100% { opacity: 0; transform: scale(2.4); } }
+@media (prefers-reduced-motion: reduce) {
+  .logo-anim .la-line, .logo-anim .la-node, .logo-anim .la-ring { animation: none !important; }
+  .logo-anim .la-line { stroke-dashoffset: 0; }
+  .logo-anim .la-node { transform: scale(1); }
+}
