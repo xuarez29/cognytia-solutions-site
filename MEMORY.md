@@ -65,5 +65,5 @@ Flujo recomendado: crear una rama, subirla, revisar la vista previa de Vercel, a
 
 - El archivo `PROMPT-continuar-diagnostico-cognytia.md` en la carpeta superior (`CognytIA-Website/`) quedó desactualizado: dice que la copia local está en la versión vieja, y ya no es así. Esta bitácora lo reemplaza.
 - Las apps de mensajería guardan en caché la vista previa de cada enlace. Si una vista previa vieja sigue apareciendo sin imagen, se puede forzar la actualización con el Post Inspector de LinkedIn o el Sharing Debugger de Facebook.
-- Los datos estructurados de `index.html` declaran el correo `hola@cognytia.mx`; el correo de contacto vigente de Carlos es otro. Confirmar cuál debe aparecer.
+- Los datos estructurados de `index.html` declaran el correo `hola@cognytia.mx`; Carlos confirmó que existe y es correcto.
 - `npm run lint` marca `'motion' is defined but never used` en archivos que usan `<motion.div>`. Es un falso positivo de la configuración de ESLint que ya existía; no afecta la compilación.

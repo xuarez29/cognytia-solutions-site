@@ -13,9 +13,11 @@ const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID
 
 // ── Helpers internos ────────────────────────────────────────────────
 
-function gtag(...args) {
+// gtag.js solo procesa el objeto `arguments` original; un arreglo
+// (por ejemplo con ...args) se ignora y GA4 no registra nada.
+function gtag() {
   window.dataLayer = window.dataLayer || []
-  window.dataLayer.push(args)
+  window.dataLayer.push(arguments)
 }
 
 // ── Inicialización ──────────────────────────────────────────────────
