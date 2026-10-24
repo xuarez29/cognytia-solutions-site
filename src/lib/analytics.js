@@ -5,11 +5,17 @@
  *   initGA()          → Carga gtag.js y configura la propiedad GA4
  *   trackEvent(...)   → Envía eventos personalizados (conversiones, CTAs, etc.)
  *
- * El script NO se carga si VITE_GA_MEASUREMENT_ID está vacío,
- * lo que evita errores en desarrollo y staging sin ID configurado.
+ * El script solo se carga en www.cognytia.mx / cognytia.mx; en desarrollo
+ * local y en las vistas previas de Vercel no se envía nada.
  */
 
-const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID
+// El ID de medición de GA4 es público (aparece en el código de cualquier
+// página que use GA). Se puede sobrescribir con VITE_GA_MEASUREMENT_ID.
+const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-8B3FXGZX7J'
+
+// Solo medir en el dominio real: así las vistas previas de Vercel y el
+// servidor local (npm run dev) no ensucian los reportes.
+const PRODUCTION_HOSTS = ['www.cognytia.mx', 'cognytia.mx']
 
 // ── Helpers internos ────────────────────────────────────────────────
 
@@ -27,7 +33,7 @@ function gtag() {
  * Llamar una sola vez al arrancar la app (main.jsx).
  */
 export function initGA() {
-  if (!GA_ID) return
+  if (!GA_ID || !PRODUCTION_HOSTS.includes(window.location.hostname)) return
 
   // Inyectar script de forma async — no bloquea el render
   const script = document.createElement('script')

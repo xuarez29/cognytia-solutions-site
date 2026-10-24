@@ -49,17 +49,16 @@ Flujo recomendado: crear una rama, subirla, revisar la vista previa de Vercel, a
 2. **Vercel Web Analytics activo** (PR #2). `@vercel/analytics` con `<Analytics />` en `src/main.jsx`. Ya está activado en el panel de Vercel y registra visitas.
 3. **Parches de seguridad** (PR #3). `npm audit fix` sin `--force`; solo cambió `package-lock.json`. Pasó de 18 avisos a 3 moderados.
 4. **Copia local sincronizada.** Estaba en el diseño viejo (commit `29119b8`); se puso en `origin/main`. El commit viejo "Añadir Vercel Web Analytics" quedó guardado en la rama local `respaldo-local-analytics` (ya no hace falta, se puede borrar).
-
 5. **SEO y vista previa al compartir** (PR #5). URL canónica `https://www.cognytia.mx/`; `og:image` y `twitter:image` con URL absoluta más tamaño, tipo y texto alternativo; `og:url`, datos estructurados (JSON-LD), `robots.txt` y `sitemap.xml` apuntan a `www` (antes apuntaban a `cognytia.mx`, que solo redirige).
 6. **Formulario de contacto verificado** por Carlos: los mensajes llegan a su correo de CognytIA.
+7. **GA4 activo** (PR #6 y #7). Se corrigió `gtag` en `src/lib/analytics.js` (empujaba un arreglo y GA4 lo ignoraba). Propiedad en la cuenta de Google carlos@cognytia.mx, ID de medición `G-8B3FXGZX7J`, puesto como valor por defecto en el código (se puede sobrescribir con `VITE_GA_MEASUREMENT_ID` en Vercel). Solo mide en `www.cognytia.mx` y `cognytia.mx`; local y vistas previas no envían datos. Eventos ya instrumentados: `whatsapp_click` y `form_submit`.
 
 ## Pendientes
 
 1. **Tailwind 3 → 4.** Los 3 avisos moderados de `npm audit` vienen de Tailwind 3 y solo se resuelven migrando a Tailwind 4, que cambia la configuración y puede romper estilos. Son de compilación y no afectan al sitio publicado. No correr `npm audit fix --force`.
-2. **Activar GA4.** El código ya existe (`src/lib/analytics.js` + `initGA()` en `src/main.jsx`), pero falta la variable `VITE_GA_MEASUREMENT_ID` (formato `G-XXXXXXXXXX`) en Vercel → Settings → Environment Variables, y luego redeploy.
-3. **Respaldos si faltan variables** (baja prioridad). `WhatsAppButton.jsx` y `Contact.jsx` usan `VITE_WHATSAPP_NUMBER` y `VITE_FORMSPREE_ID` sin respaldo. Hoy ambas funcionan, pero si una se borra en Vercel se generarían enlaces rotos sin aviso.
-4. **Limpieza de ramas en GitHub.** `dev`, `backup-main` y `preview` apuntan a versiones viejas y confunden. Las ramas ya fusionadas (`hero-logo-animado`, `analytics-vercel`, `deps-seguridad`) también se pueden borrar.
-5. **README.** `README.md` es la plantilla genérica de Vite; reemplazarlo por una descripción real del proyecto.
+2. **Respaldos si faltan variables** (baja prioridad). `WhatsAppButton.jsx` y `Contact.jsx` usan `VITE_WHATSAPP_NUMBER` y `VITE_FORMSPREE_ID` sin respaldo. Hoy ambas funcionan, pero si una se borra en Vercel se generarían enlaces rotos sin aviso.
+3. **Limpieza de ramas en GitHub.** `dev`, `backup-main` y `preview` apuntan a versiones viejas y confunden. Las ramas ya fusionadas (`hero-logo-animado`, `analytics-vercel`, `deps-seguridad`) también se pueden borrar.
+4. **README.** `README.md` es la plantilla genérica de Vite; reemplazarlo por una descripción real del proyecto.
 
 ## Notas
 
