@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { trackEvent } from '../lib/analytics'
+import { WHATSAPP_NUMBER } from '../config/contact'
 
-const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER
 const WHATSAPP_MESSAGE = 'Hola, me interesa hablar sobre un proyecto con Cognytia.'
 
 function WhatsAppIcon() {
