@@ -48,7 +48,7 @@ Flujo recomendado: crear una rama, subirla, revisar la vista previa de Vercel, a
    - Existe una versión independiente de la animación como página HTML en Claude (fondo claro y fondo oscuro), útil para video, presentaciones o redes.
 2. **Vercel Web Analytics activo** (PR #2). `@vercel/analytics` con `<Analytics />` en `src/main.jsx`. Ya está activado en el panel de Vercel y registra visitas.
 3. **Parches de seguridad** (PR #3). `npm audit fix` sin `--force`; solo cambió `package-lock.json`. Pasó de 18 avisos a 3 moderados.
-4. **Copia local sincronizada.** Estaba en el diseño viejo (commit `29119b8`); se puso en `origin/main`. El commit viejo "Añadir Vercel Web Analytics" quedó guardado en la rama local `respaldo-local-analytics` (ya no hace falta, se puede borrar).
+4. **Copia local sincronizada.** Estaba en el diseño viejo (commit `29119b8`); se puso en `origin/main`. El commit viejo "Añadir Vercel Web Analytics" se rehízo sobre el diseño actual en el PR #2.
 5. **SEO y vista previa al compartir** (PR #5). URL canónica `https://www.cognytia.mx/`; `og:image` y `twitter:image` con URL absoluta más tamaño, tipo y texto alternativo; `og:url`, datos estructurados (JSON-LD), `robots.txt` y `sitemap.xml` apuntan a `www` (antes apuntaban a `cognytia.mx`, que solo redirige).
 6. **Formulario de contacto verificado** por Carlos: los mensajes llegan a su correo de CognytIA.
 7. **GA4 activo** (PR #6 y #7). Se corrigió `gtag` en `src/lib/analytics.js` (empujaba un arreglo y GA4 lo ignoraba). Propiedad en la cuenta de Google carlos@cognytia.mx, ID de medición `G-8B3FXGZX7J`, puesto como valor por defecto en el código (se puede sobrescribir con `VITE_GA_MEASUREMENT_ID` en Vercel). Solo mide en `www.cognytia.mx` y `cognytia.mx`; local y vistas previas no envían datos. Eventos ya instrumentados: `whatsapp_click` y `form_submit`.
@@ -56,15 +56,17 @@ Flujo recomendado: crear una rama, subirla, revisar la vista previa de Vercel, a
    - Correo, WhatsApp y ID de Formspree centralizados en `src/config/contact.js`, con valores por defecto: si una variable falta en Vercel, ya no se generan enlaces rotos. `.env.example` documenta que todas son opcionales.
    - `README.md` reescrito con la descripción real del proyecto.
    - El diseño viejo (antes en las ramas `dev` y `backup-main`, con historial no relacionado a `main`) quedó archivado en la rama `archivo-diseno-anterior`.
+9. **Limpieza de ramas.** En GitHub solo quedan `main` y `archivo-diseno-anterior`; está activo "Automatically delete head branches", así que cada rama se borra sola al fusionar su pull request. En la copia local solo queda `main`.
+10. **Git en la Mac.** Se aceptó la licencia de Xcode (`sudo xcodebuild -license accept`), necesaria para usar `git` desde la Terminal de macOS.
 
 ## Pendientes
 
-1. **Borrar ramas viejas en GitHub** (lo hace Carlos desde github.com → Branches; la sesión de Claude no tiene permiso de borrar ramas). Se pueden borrar: `dev`, `backup-main`, `preview` y las ya fusionadas (`hero-logo-animado`, `analytics-vercel`, `deps-seguridad`, `memoria-proyecto`, `seo-canonical-og`, `ga4-fix`, `ga4-activar`, `mantenimiento`). Conservar `main` y `archivo-diseno-anterior`. Recomendado: activar en Settings → General "Automatically delete head branches".
-2. **Tailwind 3 → 4.** Los 3 avisos moderados de `npm audit` vienen de Tailwind 3 y solo se resuelven migrando a Tailwind 4, que cambia la configuración y puede romper estilos. Son de compilación y no afectan al sitio publicado. No correr `npm audit fix --force`.
+1. **Tailwind 3 → 4.** Los 3 avisos moderados de `npm audit` vienen de Tailwind 3 y solo se resuelven migrando a Tailwind 4, que cambia la configuración y puede romper estilos. Son de compilación y no afectan al sitio publicado. No correr `npm audit fix --force`.
 
 ## Notas
 
-- El archivo `PROMPT-continuar-diagnostico-cognytia.md` en la carpeta superior (`CognytIA-Website/`) quedó desactualizado: dice que la copia local está en la versión vieja, y ya no es así. Esta bitácora lo reemplaza.
+- El archivo `PROMPT-continuar-diagnostico-cognytia.md` en la carpeta superior (`CognytIA-Website/`) quedó desactualizado: dice que la copia local está en la versión vieja y lista pendientes que ya se resolvieron. Esta bitácora lo reemplaza; se puede borrar.
+- Claude no puede fusionar pull requests a `main` ni borrar ramas en GitHub desde su sesión; esos pasos los hace Carlos en github.com.
 - Las apps de mensajería guardan en caché la vista previa de cada enlace. Si una vista previa vieja sigue apareciendo sin imagen, se puede forzar la actualización con el Post Inspector de LinkedIn o el Sharing Debugger de Facebook.
 - Los datos estructurados de `index.html` declaran el correo `hola@cognytia.mx`; Carlos confirmó que existe y es correcto.
 - `npm run lint` marca `'motion' is defined but never used` en archivos que usan `<motion.div>`. Es un falso positivo de la configuración de ESLint que ya existía; no afecta la compilación.
