@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { Analytics } from '@vercel/analytics/react'
 
 // ── Fuentes auto-hospedadas (sin petición a Google) ─────────────────
 import '@fontsource-variable/dm-sans/wght.css'         // normal: 100–900
@@ -17,5 +18,6 @@ initGA()
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
+    <Analytics />
   </StrictMode>,
 )
