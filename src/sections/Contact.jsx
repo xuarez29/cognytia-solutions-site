@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Mail, MessageCircle, ArrowRight, AlertCircle } from 'lucide-react'
 import FadeUp from '../components/FadeUp'
 import { trackEvent } from '../lib/analytics'
+import { EMAIL, WHATSAPP_NUMBER, FORMSPREE_ID } from '../config/contact'
 
 const serviceOptions = [
   { value: 'web', label: 'Desarrollo Web' },
@@ -11,9 +12,6 @@ const serviceOptions = [
   { value: 'nosey', label: 'No sé aún — quiero platicar' },
 ]
 
-const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER
-const EMAIL = 'hola@cognytia.mx'
-const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID
 
 function InputField({ label, required, children }) {
   return (

@@ -52,13 +52,15 @@ Flujo recomendado: crear una rama, subirla, revisar la vista previa de Vercel, a
 5. **SEO y vista previa al compartir** (PR #5). URL canónica `https://www.cognytia.mx/`; `og:image` y `twitter:image` con URL absoluta más tamaño, tipo y texto alternativo; `og:url`, datos estructurados (JSON-LD), `robots.txt` y `sitemap.xml` apuntan a `www` (antes apuntaban a `cognytia.mx`, que solo redirige).
 6. **Formulario de contacto verificado** por Carlos: los mensajes llegan a su correo de CognytIA.
 7. **GA4 activo** (PR #6 y #7). Se corrigió `gtag` en `src/lib/analytics.js` (empujaba un arreglo y GA4 lo ignoraba). Propiedad en la cuenta de Google carlos@cognytia.mx, ID de medición `G-8B3FXGZX7J`, puesto como valor por defecto en el código (se puede sobrescribir con `VITE_GA_MEASUREMENT_ID` en Vercel). Solo mide en `www.cognytia.mx` y `cognytia.mx`; local y vistas previas no envían datos. Eventos ya instrumentados: `whatsapp_click` y `form_submit`.
+8. **Mantenimiento** (PR #8).
+   - Correo, WhatsApp y ID de Formspree centralizados en `src/config/contact.js`, con valores por defecto: si una variable falta en Vercel, ya no se generan enlaces rotos. `.env.example` documenta que todas son opcionales.
+   - `README.md` reescrito con la descripción real del proyecto.
+   - El diseño viejo (antes en las ramas `dev` y `backup-main`, con historial no relacionado a `main`) quedó archivado en la rama `archivo-diseno-anterior`.
 
 ## Pendientes
 
-1. **Tailwind 3 → 4.** Los 3 avisos moderados de `npm audit` vienen de Tailwind 3 y solo se resuelven migrando a Tailwind 4, que cambia la configuración y puede romper estilos. Son de compilación y no afectan al sitio publicado. No correr `npm audit fix --force`.
-2. **Respaldos si faltan variables** (baja prioridad). `WhatsAppButton.jsx` y `Contact.jsx` usan `VITE_WHATSAPP_NUMBER` y `VITE_FORMSPREE_ID` sin respaldo. Hoy ambas funcionan, pero si una se borra en Vercel se generarían enlaces rotos sin aviso.
-3. **Limpieza de ramas en GitHub.** `dev`, `backup-main` y `preview` apuntan a versiones viejas y confunden. Las ramas ya fusionadas (`hero-logo-animado`, `analytics-vercel`, `deps-seguridad`) también se pueden borrar.
-4. **README.** `README.md` es la plantilla genérica de Vite; reemplazarlo por una descripción real del proyecto.
+1. **Borrar ramas viejas en GitHub** (lo hace Carlos desde github.com → Branches; la sesión de Claude no tiene permiso de borrar ramas). Se pueden borrar: `dev`, `backup-main`, `preview` y las ya fusionadas (`hero-logo-animado`, `analytics-vercel`, `deps-seguridad`, `memoria-proyecto`, `seo-canonical-og`, `ga4-fix`, `ga4-activar`, `mantenimiento`). Conservar `main` y `archivo-diseno-anterior`. Recomendado: activar en Settings → General "Automatically delete head branches".
+2. **Tailwind 3 → 4.** Los 3 avisos moderados de `npm audit` vienen de Tailwind 3 y solo se resuelven migrando a Tailwind 4, que cambia la configuración y puede romper estilos. Son de compilación y no afectan al sitio publicado. No correr `npm audit fix --force`.
 
 ## Notas
 
