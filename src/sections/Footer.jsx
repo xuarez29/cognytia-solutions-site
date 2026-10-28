@@ -41,7 +41,11 @@ export default function Footer() {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={(e) => { e.preventDefault(); handleNav(link.href) }}
+                onClick={(e) => {
+                  // Los enlaces a otras páginas (p. ej. /cursos/…) navegan normal
+                  if (!link.href.startsWith('#')) return
+                  e.preventDefault(); handleNav(link.href)
+                }}
                 className="text-[13px] text-brand-text-secondary hover:text-brand-primary transition-colors duration-300"
               >
                 {link.label}

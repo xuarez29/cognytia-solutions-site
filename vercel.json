@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/cursos/conservadores-cosmeticos",
+      "destination": "/cursos/conservadores-cosmeticos/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/"
     }

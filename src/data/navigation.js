@@ -6,6 +6,7 @@
 
 export const navLinks = [
   { label: 'Servicios',  href: '#servicios' },
+  { label: 'Cursos',     href: '/cursos/conservadores-cosmeticos/' },
   { label: 'Proceso',    href: '#proceso'   },
   { label: 'Proyectos',  href: '#proyectos' },
   { label: 'Contacto',   href: '#contacto'  },
