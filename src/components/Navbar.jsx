@@ -94,7 +94,11 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={(e) => { e.preventDefault(); handleNav(link.href) }}
+                onClick={(e) => {
+                  // Los enlaces a otras páginas (p. ej. /cursos/…) navegan normal
+                  if (!link.href.startsWith('#')) return
+                  e.preventDefault(); handleNav(link.href)
+                }}
                 className="text-[14px] font-body text-brand-text-secondary hover:text-brand-primary transition-colors duration-300"
               >
                 {link.label}
@@ -175,7 +179,10 @@ export default function Navbar() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.07, duration: 0.3 }}
-                    onClick={(e) => { e.preventDefault(); handleNav(link.href) }}
+                    onClick={(e) => {
+                      if (!link.href.startsWith('#')) { setOpen(false); return }
+                      e.preventDefault(); handleNav(link.href)
+                    }}
                     className="px-4 py-3 rounded-lg text-brand-text hover:text-brand-primary hover:bg-[#F7FAFA] transition-all duration-300 font-body text-[15px]"
                   >
                     {link.label}

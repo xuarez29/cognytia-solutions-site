@@ -2,7 +2,7 @@
 
 Bitácora del sitio para retomar el trabajo. Léela antes de hacer cambios y actualízala al terminar.
 
-Última actualización: 23 de octubre de 2026.
+Última actualización: 28 de octubre de 2026.
 
 ---
 
@@ -38,6 +38,15 @@ npm run build       # comprobar antes de subir
 Flujo recomendado: crear una rama, subirla, revisar la vista previa de Vercel, abrir un pull request y fusionarlo a `main` para publicar.
 
 ## Historial
+
+### 28 oct 2026 (rama `curso-conservadores-cosmeticos`, sin publicar)
+
+1. **Curso "Conservadores en cosméticos" como página independiente.**
+   - Página completa del curso en `public/cursos/conservadores-cosmeticos/` (HTML y CSS propios, no React). Se sirve en `/cursos/conservadores-cosmeticos/`; `vercel.json` tiene una regla antes de la reescritura general para que la ruta sin `/` final también funcione.
+   - Decisión de Carlos: el curso es independiente de los servicios de CognytIA. No aparece como sección en la página principal y la página del curso no enlaza de regreso al sitio ni lleva la marca de CognytIA: su encabezado y pie muestran el nombre del curso, tiene ícono propio y el título de la pestaña no dice CognytIA. Solo el dominio aparece en los datos ocultos para compartir (`canonical`, `og:url`, `og:image`). Solo hay un enlace de ida: "Cursos" en el menú y en el pie de página (`src/data/navigation.js`).
+   - `Navbar.jsx` y `Footer.jsx` ahora dejan navegar normal los enlaces que no empiezan con `#`; antes todos se interceptaban para desplazarse dentro de la página.
+   - La fuente original de la página del curso está en `/Volumes/CognytIA/Projects/Cursos/Cosmeticos/sites/conservadores-cosmeticos/dist`. Si se edita una, hay que copiar los cambios a la otra.
+   - Página del curso agregada a `public/sitemap.xml`.
 
 ### 23 oct 2026
 
