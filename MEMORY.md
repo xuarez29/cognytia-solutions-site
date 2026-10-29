@@ -75,7 +75,7 @@ Flujo recomendado: crear una rama, subirla, revisar la vista previa de Vercel, a
 ## Notas
 
 - El archivo `PROMPT-continuar-diagnostico-cognytia.md` en la carpeta superior (`CognytIA-Website/`) quedó desactualizado: dice que la copia local está en la versión vieja y lista pendientes que ya se resolvieron. Esta bitácora lo reemplaza; se puede borrar.
-- Claude no puede fusionar pull requests a `main` ni borrar ramas en GitHub desde su sesión; esos pasos los hace Carlos en github.com.
+- Fusión de pull requests (actualizado el 29 oct 2026): Carlos autorizó que Claude publique directamente los cambios que él pida. Claude crea la rama, abre el pull request, espera a que pasen las verificaciones de Vercel, lo fusiona a `main` con `gh pr merge` y luego revisa la página en vivo, sin pedirle a Carlos que lo fusione. Solo aplica a cambios que Carlos pidió. La cuenta de `gh` tiene permisos de administrador y `main` no está protegida; si la app de Claude Code bloquea el comando de fusión, Carlos lo autoriza en el aviso de permisos.
 - Las apps de mensajería guardan en caché la vista previa de cada enlace. Si una vista previa vieja sigue apareciendo sin imagen, se puede forzar la actualización con el Post Inspector de LinkedIn o el Sharing Debugger de Facebook.
 - Los datos estructurados de `index.html` declaran el correo `hola@cognytia.mx`; Carlos confirmó que existe y es correcto.
 - `npm run lint` marca `'motion' is defined but never used` en archivos que usan `<motion.div>`. Es un falso positivo de la configuración de ESLint que ya existía; no afecta la compilación.
