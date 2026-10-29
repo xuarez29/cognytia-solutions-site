@@ -25,6 +25,25 @@
 <link rel="stylesheet" href="/cursos/conservadores-cosmeticos/style.css?v=6">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='16'%20fill='%23087d88'/%3E%3Cpath%20d='M26%2014h12M28%2014v14L17%2047a4%204%200%200%200%203.5%206h23a4%204%200%200%200%203.5-6L36%2028V14'%20fill='none'%20stroke='white'%20stroke-width='3.5'%20stroke-linecap='round'%20stroke-linejoin='round'/%3E%3Cpath%20d='M21.5%2040h21'%20stroke='%238edbd9'%20stroke-width='3.5'%20stroke-linecap='round'/%3E%3C/svg%3E">
 <script>document.documentElement.classList.add('js')</script>
+<script>
+// Google Analytics 4 (misma propiedad que cognytia.mx). Solo mide en el dominio real,
+// no en local ni en las vistas previas de Vercel.
+(function(){
+  var GA_ID="G-8B3FXGZX7J";
+  if(["www.cognytia.mx","cognytia.mx"].indexOf(location.hostname)<0)return;
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){dataLayer.push(arguments)};
+  gtag("js",new Date());gtag("config",GA_ID);
+  var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+GA_ID;document.head.appendChild(s);
+  // Clics en WhatsApp y correo, con la sección de donde vienen
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a[href]");if(!a)return;
+    var where=a.closest(".mobile-bar")?"barra-movil":a.closest(".nav")?"encabezado":a.closest("footer")?"pie":(a.closest("section[id]")||{}).id||"otro";
+    if(a.href.indexOf("wa.me/")>-1)gtag("event","whatsapp_click",{section:where,page:"curso-conservadores"});
+    else if(a.href.indexOf("mailto:")===0)gtag("event","email_click",{section:where,page:"curso-conservadores"});
+  });
+})();
+</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
