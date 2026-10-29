@@ -276,8 +276,8 @@ footer{border-top:1px solid var(--line);background:#fff}
   .js .reveal{opacity:1;transform:none}
 }
 
-/* Mobile header: course name + button on one line */
+/* Mobile header: only the course name; the bottom bar holds the WhatsApp button */
 @media(max-width:760px){
   .nav .brand{font-size:21px}
-  .nav .button.small{white-space:nowrap;padding:11px 16px;font-size:13px;gap:8px}
+  .nav .button.small{display:none}
 }
