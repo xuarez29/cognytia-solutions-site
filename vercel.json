@@ -5,6 +5,10 @@
       "destination": "/cursos/conservadores-cosmeticos/index.html"
     },
     {
+      "source": "/cursos/conservadores-cosmeticos/privacidad",
+      "destination": "/cursos/conservadores-cosmeticos/privacidad/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/"
     }

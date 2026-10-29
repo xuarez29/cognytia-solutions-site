@@ -148,6 +148,17 @@ h2{font-size:clamp(34px,3.6vw,46px);line-height:1.1;letter-spacing:-.03em}
 .closed .price-card .eyebrow{margin-bottom:22px}
 .price-card>small{font-size:12.5px;line-height:1.6;display:block;color:var(--muted);text-align:center}
 
+/* Aviso de privacidad */
+.back-link{font-size:14px;font-weight:500;text-decoration:none;color:var(--navy);transition:color .2s}
+.back-link:hover{color:var(--teal-deep)}
+.legal{max-width:760px;padding-top:72px;padding-bottom:96px}
+.legal h1{font-size:clamp(34px,4vw,48px);margin-bottom:10px}
+.legal .updated{font-size:13px;margin-bottom:40px}
+.legal h2{font-size:20px;letter-spacing:-.01em;margin:36px 0 10px}
+.legal ul{padding-left:20px;margin:0 0 16px;color:var(--muted);line-height:1.7}
+.legal li{margin:4px 0}
+.legal a{color:var(--teal-deep)}
+
 /* FAQ */
 .faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px}
 .faq>div:first-child{position:sticky;top:110px;align-self:start}
@@ -219,6 +230,7 @@ footer{border-top:1px solid var(--line);background:#fff}
   .nav{height:68px;padding:0 20px}
   .nav.scrolled{height:60px}
   .nav nav{display:none}
+  .legal{padding-top:40px;padding-bottom:64px}
   .brand{font-size:23px}
   .brand small{font-size:8px}
   .hero{min-height:0;margin-top:-68px;padding-top:68px}
