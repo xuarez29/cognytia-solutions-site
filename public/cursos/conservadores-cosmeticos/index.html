@@ -48,7 +48,7 @@
 <header class="nav" id="top-nav">
   <a class="brand" href="#inicio" aria-label="Conservadores en cosméticos, ir al inicio"><span>Conservadores</span><small>EN COSMÉTICOS</small></a>
   <nav aria-label="Navegación principal"><a href="#programa">El programa</a><a href="#instructor">Tu instructor</a><a href="#dudas">Preguntas</a></nav>
-  <a class="button small" href="#inscripcion">Reserva tu lugar <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  <a class="button small whatsapp wa-cta" href="https://wa.me/524425955891?text=Hola%2C%20quiero%20inscribirme%20al%20curso%20Conservadores%20en%20cosm%C3%A9ticos%20del%2021%20de%20noviembre.%20%C2%BFMe%20compartes%20los%20datos%20de%20transferencia%3F" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> <span id="nav-cta">Reserva tu lugar</span></a>
 </header>
 
 <main>
@@ -199,7 +199,7 @@
   <div class="wrap footer-bottom"><small>© 2026 · Curso Conservadores en cosméticos</small></div>
 </footer>
 
-<div class="mobile-bar"><span><span id="mobile-date">21 NOV · </span><strong id="mobile-price">$1,490 MXN</strong><small id="mobile-price-note">Hasta el 17 de noviembre</small></span><a class="button small" href="#inscripcion"><span id="mobile-cta">Reservar lugar</span> <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+<div class="mobile-bar"><span><span id="mobile-date">21 NOV · </span><strong id="mobile-price">$1,490 MXN</strong><small id="mobile-price-note">Hasta el 17 de noviembre</small></span><a class="button small whatsapp wa-cta" href="https://wa.me/524425955891?text=Hola%2C%20quiero%20inscribirme%20al%20curso%20Conservadores%20en%20cosm%C3%A9ticos%20del%2021%20de%20noviembre.%20%C2%BFMe%20compartes%20los%20datos%20de%20transferencia%3F" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg> <span id="mobile-cta">Reservar lugar</span></a></div>
 
 <script>
 (function(){
@@ -213,9 +213,12 @@
     txt("enroll-lead","Las inscripciones para la edición del 21 de noviembre ya cerraron. Escríbenos y te avisamos cuando abramos la próxima.");
     txt("price-label","INSCRIPCIONES CERRADAS");
     txt("enroll-wa-label","Avísame de la próxima edición");
-    $("enroll-wa").href="https://wa.me/524425955891?text="+encodeURIComponent("Hola, me interesa el curso Conservadores en cosméticos. ¿Me avisas cuando abran la próxima edición?");
+    var next="https://wa.me/524425955891?text="+encodeURIComponent("Hola, me interesa el curso Conservadores en cosméticos. ¿Me avisas cuando abran la próxima edición?");
+    $("enroll-wa").href=next;
+    document.querySelectorAll(".wa-cta").forEach(function(a){a.href=next});
+    txt("nav-cta","Próxima edición");
     txt("enroll-note","Gracias por tu interés.");
-    txt("mobile-date","");txt("mobile-price","Inscripciones cerradas");txt("mobile-price-note","Pregunta por la próxima edición");txt("mobile-cta","Ver más");
+    txt("mobile-date","");txt("mobile-price","Inscripciones cerradas");txt("mobile-price-note","Pregunta por la próxima edición");txt("mobile-cta","Avísame");
     document.querySelectorAll(".button[href='#inscripcion']").forEach(function(a){if(a.firstChild&&a.firstChild.nodeType===3)a.firstChild.textContent="Próxima edición "});
   }else if(now>=Date.parse("2026-11-18T06:00:00Z")){
     txt("price-label","PRECIO REGULAR");
