@@ -4,13 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Paleta corporativa de CognytIA (sin cambios de valor)
+        // Paleta del experimento "Electric Teal" (mismos valores que index.css)
         teal: {
-          DEFAULT: '#3DBCB8', // primario
-          spark: '#1FB5B0',
-          deep: '#0A2E2E',
-          mid: '#1A4A4A',
-          tint: '#E4F4F3',
+          DEFAULT: '#00C4BA', // primario
+          spark: '#009F98',
+          deep: '#123638',
+          mid: '#205455',
+          tint: '#DDF7F4',
         },
         word: '#606B77', // gris del logotipo "Cognyt"
         // Neutros del sistema "Human-Centered Industrial"

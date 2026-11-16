@@ -127,7 +127,7 @@ export default function Navbar() {
 
             <a
               href="#contacto"
-              className="hidden lg:flex items-center gap-4 ml-4 px-6 bg-teal-deep text-white mono !text-[12px] uppercase !tracking-[0.08em] font-medium transition-colors duration-300 hover:bg-teal hover:text-teal-deep [&_svg]:transition-transform [&_svg]:duration-300 hover:[&_svg]:translate-x-1"
+              className="hidden lg:flex items-center gap-4 ml-4 px-6 bg-teal text-teal-deep mono !text-[12px] uppercase !tracking-[0.08em] font-medium transition-colors duration-300 hover:bg-teal-deep hover:text-white [&_svg]:transition-transform [&_svg]:duration-300 hover:[&_svg]:translate-x-1"
             >
               Hablemos
               <ArrowRight />

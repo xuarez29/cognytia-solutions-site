@@ -2,7 +2,7 @@
 
 Bitácora del sitio para retomar el trabajo. Léela antes de hacer cambios y actualízala al terminar.
 
-Última actualización: 15 de noviembre de 2026, cierre del día (rediseño publicado y guía de marca para slides).
+Última actualización: 16 de noviembre de 2026 (paleta "Electric Teal" publicada).
 
 ---
 
@@ -24,7 +24,7 @@ Bitácora del sitio para retomar el trabajo. Léela antes de hacer cambios y act
 - Fuentes auto-hospedadas con `@fontsource-variable`: DM Sans (logotipo, títulos y texto) y JetBrains Mono (etiquetas).
 - Sitio de una sola página. `src/App.jsx` define el orden de las secciones (`src/sections/`).
 - `npm run build` incluye un prerender (`scripts/prerender.js`): deja el HTML de la página en `dist/index.html` y React lo hidrata. No usar `window` ni `document` durante el render.
-- Sistema visual en `src/index.css` (variables, retícula, tipografía, botones). Colores de marca en `tailwind.config.js`: teal `#3DBCB8`, oscuro `#0A2E2E`, gris del logotipo `#606B77`.
+- Sistema visual en `src/index.css` (variables, retícula, tipografía, botones). Colores de marca en `tailwind.config.js` (paleta "Electric Teal"): teal `#00C4BA`, oscuro `#123638`, gris del logotipo `#606B77`; el logo usa `#00A69C`.
 - `vercel.json` reescribe todas las rutas a `/` (con reglas propias antes para la página del curso).
 
 ## Cómo trabajar
@@ -40,6 +40,17 @@ npm run build       # comprobar antes de subir
 Flujo recomendado: crear una rama, subirla, revisar la vista previa de Vercel, abrir un pull request y fusionarlo a `main` para publicar.
 
 ## Historial
+
+### 16 nov 2026 (paleta "Electric Teal", publicada)
+
+Cambio solo de color sobre el rediseño "Human-Centered Industrial"; sin cambios de layout, tipografía, contenido ni comportamiento. Se probó en la rama `experiment/electric-teal` con vistas previas de Vercel y Carlos lo aprobó.
+
+- **Paleta** (`src/index.css` y `tailwind.config.js`): lienzo `#F7F8F7`, tinta `#202728`, tinta suave `#626B70`, tinta tenue `#808A8E`, teal `#00C4BA`, teal profundo `#123638`, teal medio `#205455`, tinte `#DDF7F4`. Los neutros ya no tienen tinte verde. Secciones oscuras: fondo `#123638`, panel `#184345`.
+- **`--teal-spark` es `#009F98`**, no el `#00AAA2` propuesto: se usa en íconos pequeños sobre fondo claro y así llega a 3:1.
+- **Logo** (`LogoMark.jsx`, `LogoAnimation.jsx`, clases `la-*` y `.wordmark b`): color principal `#00A69C` ("Electric Teal Medium", variable `--teal-logo`), conexiones y sombra del degradado `#008F87`, tono intermedio `#00B5AB`, pulsos y anillos `#00C4BA`, estelas `#70DDD5`. Se probó antes `#008F87` como principal y se descartó por oscuro. Geometría y tiempos sin cambio.
+- **Botones:** el principal (`.btn--solid`) y "Hablemos" del menú son teal con texto y borde en teal profundo; al pasar el cursor se invierten. El botón flotante de WhatsApp sigue oscuro.
+- **Contraste:** el teal `#00C4BA` da 2:1 sobre el lienzo claro, así que no se usa para texto pequeño ahí; sobre el oscuro da 6:1.
+- La página del curso de conservadores no se tocó.
 
 ### 15 nov 2026 (rediseño "Human-Centered Industrial", PR #26, publicado)
 
