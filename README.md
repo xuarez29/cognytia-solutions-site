@@ -50,7 +50,7 @@ Para cambiar textos de servicios, proyectos, proceso o testimonios, edita el arc
 
 Dirección "Human-Centered Industrial": lienzo claro, retícula visible, titulares editoriales, etiquetas en mono y los nodos del isotipo como señal recurrente (cruces de la retícula, viñetas, estados activos).
 
-- Los colores corporativos no cambiaron: teal `#3DBCB8`, oscuro `#0A2E2E`, gris del logotipo `#606B77`. Están como variables en `src/index.css` y como colores de Tailwind (`teal`, `teal-deep`, `ink`, `paper`, `line`…).
+- Paleta "Electric Teal" (16 nov 2026): teal `#00C4BA` como acento, turquesa del logo `#00A69C`, oscuro `#123638`, gris del logotipo `#606B77` y neutros sin tinte verde. Están como variables en `src/index.css` y como colores de Tailwind (`teal`, `teal-deep`, `ink`, `paper`, `line`…).
 - La animación del logo (`components/LogoAnimation.jsx`) y su geometría (`data/logoGeometry.js`) son las originales; el hero solo las enmarca.
 - Dentro de `.theme-dark` las variables se invierten solas (se usa en la franja de resultados).
 - Todas las animaciones respetan "reducir movimiento" y, sin JavaScript, el contenido queda visible.
