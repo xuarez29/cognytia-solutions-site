@@ -1,86 +1,91 @@
-import { motion } from 'framer-motion'
-import { Linkedin } from 'lucide-react'
+import LogoMark from '../components/LogoMark'
+import { ArrowUpRight, LinkedIn } from '../components/Icons'
 import { navLinks, socials } from '../data/navigation'
+import { EMAIL, WHATSAPP_NUMBER } from '../config/contact'
+import { trackEvent } from '../lib/analytics'
 
-// Mapa de id → componente de ícono (para mantener Lucide fuera del archivo de datos)
-const socialIcons = { linkedin: Linkedin }
+const socialIcons = { linkedin: LinkedIn }
 
 export default function Footer() {
-  const handleNav = (href) => {
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
-    <footer className="bg-white">
-      {/* Top teal divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(61,188,184,0.2)] to-transparent" />
+    <footer className="border-t border-line">
+      <div className="shell">
+        <div className="frame">
+          <div className="grid grid-cols-1 lg:grid-cols-12">
+            <div className="flex flex-col justify-between gap-10 pad lg:col-span-5 lg:py-[clamp(32px,4vw,56px)]">
+              <LogoMark className="h-14 w-14" />
+              <div>
+                <p className="text-[clamp(1.8rem,3vw,2.6rem)] leading-none tracking-[-0.04em]">
+                  IA con propósito<span className="text-teal">.</span>
+                </p>
+                <p className="mono mt-4 text-ink-soft">Especialistas en integración de IA</p>
+              </div>
+            </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 xl:px-32 py-12">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
-          {/* Logo + tagline */}
-          <div className="flex items-center gap-3">
-            <img
-              src="/favicon-256x256.png"
-              alt="Cognytia Solutions"
-              className="h-9 w-9 object-contain"
-            />
-            <div>
-              <p className="font-heading font-semibold text-[14px] leading-tight" style={{ color: '#606B77' }}>
-                Cognyt<span className="text-brand-primary">IA</span> Solutions
-              </p>
-              <p className="text-[12px] text-brand-text-secondary font-mono">
-                Especialistas en integración de IA
-              </p>
+            <nav className="border-t border-line pad lg:col-span-3 lg:border-l lg:border-t-0 lg:py-[clamp(32px,4vw,56px)]" aria-label="Pie de página">
+              <p className="label mb-6">Navegación</p>
+              <ul className="grid grid-cols-2 gap-x-6 gap-y-3 lg:grid-cols-1">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <a href={link.href} className="inline-flex items-center gap-2 underline-offset-4 hover:underline">
+                      {link.label}
+                      {!link.href.startsWith('#') && <ArrowUpRight width="13" height="13" className="text-ink-soft" />}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <div className="border-t border-line pad lg:col-span-4 lg:border-l lg:border-t-0 lg:py-[clamp(32px,4vw,56px)]">
+              <p className="label mb-6">Contacto</p>
+              <ul className="flex flex-col gap-3">
+                <li>
+                  <a href={`mailto:${EMAIL}`} className="underline-offset-4 hover:underline">
+                    {EMAIL}
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent('whatsapp_click', { source: 'footer' })}
+                    className="underline-offset-4 hover:underline"
+                  >
+                    WhatsApp
+                  </a>
+                </li>
+                {socials.map((s) => {
+                  const Icon = socialIcons[s.id]
+                  return (
+                    <li key={s.id}>
+                      <a
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 underline-offset-4 hover:underline"
+                      >
+                        {Icon && <Icon width="14" height="14" />}
+                        {s.label}
+                      </a>
+                    </li>
+                  )
+                })}
+              </ul>
             </div>
           </div>
 
-          {/* Nav links */}
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  // Los enlaces a otras páginas (p. ej. /cursos/…) navegan normal
-                  if (!link.href.startsWith('#')) return
-                  e.preventDefault(); handleNav(link.href)
-                }}
-                className="text-[13px] text-brand-text-secondary hover:text-brand-primary transition-colors duration-300"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* Socials */}
-          <div className="flex items-center gap-3">
-            {socials.map((s) => {
-              const Icon = socialIcons[s.id]
-              return (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={s.label}
-                  className="w-8 h-8 rounded-lg border border-[rgba(61,188,184,0.2)] flex items-center justify-center text-brand-text-secondary hover:text-brand-primary hover:border-brand-primary transition-all duration-300"
-                >
-                  <Icon size={14} strokeWidth={1.5} />
-                </a>
-              )
-            })}
+          {/* Logotipo a todo lo ancho */}
+          <div className="border-t border-line px-[var(--pad)] py-[clamp(12px,2vw,28px)] [container-type:inline-size]" aria-hidden="true">
+            <p className="wordmark whitespace-nowrap text-[19vw] leading-[1.02] tracking-[-0.045em] [font-size:24.3cqw]">
+              Cognyt<b>IA</b>
+            </p>
           </div>
-        </div>
 
-        {/* Bottom */}
-        <div className="mt-8 pt-6 border-t border-[rgba(61,188,184,0.08)] flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <p className="text-[12px] text-brand-text-secondary">
-            © 2026 CognytIA Solutions. Hecho en México 🇲🇽
-          </p>
-          <p className="text-[11px] text-brand-text-secondary/60 font-mono">
-            v1.0 · Diseño propio
-          </p>
+          <div className="mono flex flex-col justify-between gap-2 border-t border-line px-[var(--pad)] pb-24 pt-5 text-[11.5px] text-ink-soft sm:flex-row sm:items-center sm:pb-5 sm:pr-28">
+            <p>© 2026 CognytIA Solutions. Hecho en México 🇲🇽</p>
+            <p>v2.0 · Diseño propio</p>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,34 +1,34 @@
-import { Globe, Brain, Zap } from 'lucide-react'
-
 /**
  * services.js
- * Servicios principales de Cognytia.
+ * Servicios principales de CognytIA.
  * Editar aquí para agregar/modificar servicios sin tocar el JSX.
+ *
+ * `figure` elige la ilustración isométrica (ver components/ServiceFigure.jsx).
  */
 
 export const services = [
   {
-    icon: Globe,
     tag: '01',
-    title: 'Desarrollo Web',
+    figure: 'web',
+    title: 'Desarrollo web',
     description:
       'Sitios y plataformas rápidas, escalables y con diseño que convierte. De landing pages a sistemas complejos.',
-    detail: 'React · Next.js · Node.js · Supabase',
+    stack: ['React', 'Next.js', 'Node.js', 'Supabase'],
   },
   {
-    icon: Brain,
     tag: '02',
+    figure: 'ia',
     title: 'Integraciones con IA',
     description:
       'Conectamos modelos de lenguaje, visión y predicción a tus productos. IA útil, no IA por moda.',
-    detail: 'OpenAI · Anthropic · LangChain · RAG',
+    stack: ['OpenAI', 'Anthropic', 'LangChain', 'RAG'],
   },
   {
-    icon: Zap,
     tag: '03',
-    title: 'Automatización de Procesos',
+    figure: 'auto',
+    title: 'Automatización de procesos',
     description:
-      'Identificamos cuellos de botella y los eliminamos con flujos inteligentes. Tu equipo hace lo que importa, el resto lo automatizamos.',
-    detail: 'Python · Zapier · n8n · Make',
+      'Identificamos cuellos de botella y los eliminamos con flujos inteligentes. Tu equipo hace lo que importa; el resto lo automatizamos.',
+    stack: ['Python', 'Zapier', 'n8n', 'Make'],
   },
 ]

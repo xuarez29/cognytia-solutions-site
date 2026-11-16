@@ -1,169 +1,124 @@
-import { motion } from 'framer-motion'
-import { ArrowRight, ChevronDown } from 'lucide-react'
 import LogoAnimation from '../components/LogoAnimation'
+import { ArrowDown, ArrowRight, Replay } from '../components/Icons'
+
+const index = [
+  { n: '01', label: 'Desarrollo web', href: '#servicios' },
+  { n: '02', label: 'Integraciones con IA', href: '#servicios' },
+  { n: '03', label: 'Automatización de procesos', href: '#servicios' },
+  { n: '04', label: 'Notion para empresas', href: '#notion' },
+]
 
 export default function Hero() {
-  const scrollToServices = () => {
-    document.querySelector('#servicios')?.scrollIntoView({ behavior: 'smooth' })
-  }
-  const scrollToContact = () => {
-    document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
-    <section className="relative min-h-screen flex items-center bg-white overflow-hidden">
-      {/* Subtle background dot grid */}
-      <div className="absolute inset-0 dot-grid-bg opacity-60 pointer-events-none" />
+    <section id="inicio" className="pt-[var(--nav-h)]" aria-labelledby="hero-titulo">
+      <div className="shell">
+        <div className="frame grid grid-cols-1 lg:grid-cols-12 lg:grid-rows-[1fr_auto] lg:min-h-[calc(100svh-var(--nav-h))]">
+          {/* ── Lámina del isotipo: la animación original, presentada como plano ── */}
+          <div className="blueprint relative order-1 flex items-center justify-center overflow-hidden border-b border-line lg:order-2 lg:col-span-5 lg:border-b-0 lg:border-l min-h-[min(74vw,400px)] lg:min-h-0">
+            <span className="bracket bracket--tl" />
+            <span className="bracket bracket--tr" />
+            <span className="bracket bracket--bl" />
+            <span className="bracket bracket--br" />
 
-      {/* Teal gradient blob — top left */}
-      <div
-        className="absolute -top-40 -left-40 w-96 h-96 rounded-full pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle, rgba(61,188,184,0.06) 0%, transparent 70%)',
-        }}
-      />
-
-      <div className="relative w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20 xl:px-32 pt-32 pb-20 lg:pt-40 lg:pb-28">
-        <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-16 items-center">
-          {/* Left — Text */}
-          <div className="order-2 lg:order-1">
-            {/* Tag */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[rgba(61,188,184,0.25)] bg-[rgba(61,188,184,0.04)] mb-8"
+            {/* Geometría de construcción */}
+            <svg
+              className="absolute inset-0 h-full w-full text-ink"
+              viewBox="0 0 400 400"
+              preserveAspectRatio="xMidYMid meet"
+              fill="none"
+              aria-hidden="true"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-primary inline-block" />
-              <span className="text-[12px] font-mono text-brand-primary tracking-wide">
-                Especialistas en integración de IA
-              </span>
-            </motion.div>
+              <g stroke="currentColor" strokeWidth="1" vectorEffect="non-scaling-stroke" opacity="0.16">
+                <circle cx="200" cy="200" r="168" />
+                <circle cx="200" cy="200" r="118" strokeDasharray="3 5" />
+                <path d="M200 6v388M6 200h388" strokeDasharray="3 5" />
+                <path d="M62 62l276 276M338 62 62 338" opacity="0.6" />
+              </g>
+            </svg>
 
-            {/* Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
-              className="font-heading font-bold mb-6 leading-[1.1]"
-              style={{ fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', letterSpacing: '-0.03em', color: '#606B77' }}
-            >
-              Cognyt<span className="text-brand-primary">IA</span> Solutions.{' '}
-              <span
-                className="text-gradient-teal font-medium block mt-3"
-                style={{ fontSize: 'clamp(1.1rem, 2vw, 1.6rem)', letterSpacing: '-0.01em' }}
-              >
-                IA con Propósito
-              </span>
-            </motion.h1>
+            <p className="mono absolute left-9 top-[15px] text-[10.5px] uppercase tracking-[0.1em] text-ink-soft">
+              Fig. 01 — Isotipo
+            </p>
+            <p className="mono absolute right-9 top-[15px] hidden text-[10.5px] uppercase tracking-[0.1em] text-ink-soft xs:block">
+              7 nodos · 8 conexiones
+            </p>
+            <p className="mono absolute bottom-[15px] left-9 hidden text-[10.5px] uppercase tracking-[0.1em] text-ink-soft xs:block">
+              20.59° N · 100.39° O
+            </p>
+            <p className="mono absolute bottom-[15px] right-9 flex items-center gap-2 text-[10.5px] uppercase tracking-[0.1em] text-ink-soft">
+              <Replay width="12" height="12" />
+              Toca para repetir
+            </p>
 
-            {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.35 }}
-              className="text-brand-text-secondary text-[16px] leading-relaxed mb-10 max-w-lg"
-            >
-              Desarrollamos soluciones web, integramos inteligencia artificial y
-              automatizamos procesos para que emprendedores y PyMEs crezcan con propósito.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
-              className="flex flex-wrap items-center gap-4"
-            >
-              <button onClick={scrollToServices} className="btn-primary px-7 py-3.5 text-[14px]">
-                Ver qué hacemos
-                <ArrowRight size={15} />
-              </button>
-              <button
-                onClick={scrollToContact}
-                className="btn-ghost text-[14px] group"
-              >
-                Agendar llamada
-                <ArrowRight
-                  size={14}
-                  className="transition-transform duration-300 group-hover:translate-x-1"
-                />
-              </button>
-            </motion.div>
-
-            {/* Social proof hint */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="mt-12 flex items-center gap-3"
-            >
-              <div className="flex -space-x-2">
-                {['#0A2E2E', '#1A4A4A', '#3DBCB8'].map((c, i) => (
-                  <div
-                    key={i}
-                    className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center"
-                    style={{ background: c, zIndex: 3 - i }}
-                  >
-                    <span className="text-white text-[9px] font-medium">
-                      {['F', 'S', 'P'][i]}
-                    </span>
-                  </div>
-                ))}
-              </div>
-              <p className="text-[13px] text-brand-text-secondary">
-                IA y automatización al alcance de tu negocio.
-              </p>
-            </motion.div>
+            <div className="relative w-[46%] max-w-[230px] py-14 lg:w-[58%] lg:max-w-[360px] lg:py-0">
+              <LogoAnimation />
+            </div>
           </div>
 
-          {/* Right — Logo animado */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
-            className="order-1 lg:order-2 relative flex items-center justify-start lg:justify-center"
-          >
-            <div className="relative w-[170px] sm:w-[210px] lg:w-full lg:max-w-[460px] aspect-square flex items-center justify-center">
-              {/* Halo */}
-              <div
-                className="absolute -inset-[12%] rounded-full pointer-events-none"
-                style={{ background: 'radial-gradient(circle, rgba(61,188,184,0.13) 0%, rgba(61,188,184,0.04) 45%, transparent 70%)' }}
-              />
-              {/* Órbitas (solo desktop) */}
-              <div className="hidden lg:block absolute inset-0 rounded-full border border-[rgba(61,188,184,0.14)] pointer-events-none" />
-              <motion.div
-                aria-hidden="true"
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 90, ease: 'linear' }}
-                className="hidden lg:block absolute -inset-[7%] rounded-full border border-dashed border-[rgba(61,188,184,0.22)] pointer-events-none motion-reduce:animate-none"
-              >
-                <span className="absolute top-[14%] right-[13%] w-2 h-2 rounded-full bg-brand-primary/60" />
-                <span className="absolute bottom-[9%] left-[22%] w-1.5 h-1.5 rounded-full bg-brand-primary/40" />
-              </motion.div>
-              <LogoAnimation className="relative w-[86%]" />
+          {/* ── Texto ── */}
+          <div className="order-2 flex flex-col justify-between gap-12 pad py-10 lg:order-1 lg:col-span-7 lg:gap-10 lg:py-[clamp(28px,5svh,56px)]">
+            <div className="fade-in flex flex-wrap items-center justify-between gap-x-8 gap-y-2">
+              <p className="label">
+                <span className="node" aria-hidden="true" />
+                Especialistas en integración de IA
+              </p>
+              <p className="label hidden sm:inline-flex">Querétaro, México</p>
             </div>
-          </motion.div>
+
+            <h1 id="hero-titulo" className="display">
+              <span className="sr-only">CognytIA Solutions: </span>
+              <span className="line-mask" style={{ '--d': '0.1s' }}>
+                <span>IA con </span>
+              </span>
+              <span className="line-mask" style={{ '--d': '0.22s' }}>
+                <span>
+                  propósito<span className="text-teal">.</span>
+                </span>
+              </span>
+            </h1>
+
+            <div className="fade-in flex flex-col gap-8" style={{ '--d': '0.5s' }}>
+              <p className="lead max-w-[46ch]">
+                Desarrollamos soluciones web, integramos inteligencia artificial y automatizamos procesos
+                para que emprendedores y PyMEs crezcan con tecnología que funciona.
+              </p>
+              <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
+                <a href="#contacto" className="btn btn--solid">
+                  Agendar llamada
+                  <ArrowRight />
+                </a>
+                <a href="#servicios" className="text-link">
+                  Ver qué hacemos
+                  <ArrowDown />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* ── Índice de servicios ── */}
+          <nav
+            className="relative order-3 grid grid-cols-2 border-t border-line lg:col-span-12 lg:grid-cols-4"
+            aria-label="Servicios"
+          >
+            <span className="joint" style={{ left: 0, top: 0 }} />
+            {index.map((item, i) => (
+              <a
+                key={item.n}
+                href={item.href}
+                className={`group flex min-h-[92px] flex-col justify-between gap-4 px-[var(--pad)] py-4 transition-colors duration-500 hover:bg-panel lg:min-h-[104px] lg:py-5 border-line ${
+                  i % 2 ? '' : 'border-r'
+                } ${i < 2 ? 'border-b lg:border-b-0' : ''} ${i < 3 ? 'lg:border-r' : 'lg:border-r-0'}`}
+              >
+                <span className="flex items-center justify-between">
+                  <span className="mono text-ink-soft">{item.n}</span>
+                  <ArrowDown className="text-ink-mute transition-transform duration-300 group-hover:translate-y-1 group-hover:text-ink" />
+                </span>
+                <span className="text-[15px] leading-tight tracking-[-0.01em] sm:text-[17px]">{item.label}</span>
+              </a>
+            ))}
+          </nav>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-        onClick={scrollToServices}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-brand-text-secondary hover:text-brand-primary transition-colors"
-        aria-label="Scroll hacia abajo"
-      >
-        <span className="text-[11px] font-mono tracking-widest uppercase">scroll</span>
-        <motion.div
-          animate={{ y: [0, 5, 0] }}
-          transition={{ repeat: Infinity, duration: 1.8, ease: 'easeInOut' }}
-        >
-          <ChevronDown size={16} />
-        </motion.div>
-      </motion.button>
     </section>
   )
 }

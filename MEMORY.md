@@ -19,11 +19,15 @@ Bitácora del sitio para retomar el trabajo. Léela antes de hacer cambios y act
 
 ## Stack
 
+En `main` (producción):
+
 - React 19 + Vite 7 + Tailwind CSS 3 + framer-motion + lucide-react.
 - Fuentes auto-hospedadas con `@fontsource-variable`: DM Sans (títulos), Inter (texto) y JetBrains Mono (etiquetas).
 - Sitio de una sola página. `src/App.jsx` carga `Navbar`, `Hero` y `Services` de inmediato; el resto de las secciones (`src/sections/`) se cargan diferidas con `lazy`.
 - Colores de marca en `tailwind.config.js`: teal `#3DBCB8`, oscuro `#0A2E2E`.
 - `vercel.json` reescribe todas las rutas a `/`.
+
+En la rama `redesign/human-industrial` (rediseño, ver historial del 15 nov): mismo React + Vite + Tailwind 3, pero sin framer-motion, lucide-react ni Inter; el build agrega un prerender. El detalle está en `README.md` de esa rama.
 
 ## Cómo trabajar
 
@@ -38,6 +42,22 @@ npm run build       # comprobar antes de subir
 Flujo recomendado: crear una rama, subirla, revisar la vista previa de Vercel, abrir un pull request y fusionarlo a `main` para publicar.
 
 ## Historial
+
+### 15 nov 2026 (rediseño "Human-Centered Industrial" — rama `redesign/human-industrial`, SIN publicar)
+
+Rediseño completo de la página principal, pedido por Carlos. **Vive solo en la rama `redesign/human-industrial`; no se fusiona a `main` ni se publica sin su aprobación explícita** (para este trabajo no aplica la autorización general de fusionar que está en Notas).
+
+1. **Dirección visual.** Lienzo claro, retícula visible, titulares editoriales grandes, etiquetas en mono y figuras isométricas propias. La señal de marca son los nodos del isotipo: marcan los cruces de la retícula, las viñetas y los estados activos.
+2. **Lo que se conservó.** Colores corporativos (mismos valores), logotipo "CognytIA" en DM Sans gris + teal, isotipo y su animación original del hero (`LogoAnimation.jsx` sin cambios de comportamiento; solo se movió su geometría a `src/data/logoGeometry.js` para reutilizarla en el isotipo estático), lema "IA con propósito.", servicios, proyectos, métricas, testimonios, formulario (Formspree, mismos campos y mismo cuerpo), WhatsApp, GA4, Vercel Analytics y el enlace a Cursos.
+3. **Página del curso.** `public/cursos/conservadores-cosmeticos/` no se tocó (idéntica byte a byte).
+4. **Estructura nueva de la página.** Hero → Enfoque → Servicios → Notion para empresas → Proceso → Proyectos → Resultados → Testimonios → Contacto → Pie. Entre secciones hay una regla graduada con el número de sección.
+5. **Piezas interactivas.** Texto del enfoque que se "enciende" al leer; figura del proceso que se construye con el scroll (fija en escritorio, una por paso en móvil); expediente de proyectos con diagrama de flujo (acordeón en móvil); vista esquemática de un espacio de trabajo de Notion con pestañas.
+6. **Cambios técnicos.**
+   - Se quitaron `framer-motion`, `lucide-react` y `@fontsource-variable/inter`: las animaciones son CSS + dos hooks (`useInView`, `useScrollProgress`) y los íconos son SVG propios. DM Sans se usa también para el texto.
+   - **Prerender:** `npm run build` ahora también renderiza la página a HTML (`scripts/prerender.js`) y React la hidrata. Si el prerender no corre, el sitio funciona igual como SPA.
+   - SEO: se conservaron título, descripción, canonical, Open Graph, Twitter y JSON-LD; se agregaron el lema y el catálogo de servicios al JSON-LD, `apple-touch-icon` y se actualizó `lastmod` del sitemap.
+   - Nuevos eventos `whatsapp_click` con `source: 'contact_section'` y `source: 'footer'` (antes solo el botón flotante lo medía).
+7. **Verificación (local, build de producción).** Compila y pasa `npm run lint` sin errores. Probado a 375, 768 y 1440 px sin desbordamiento horizontal. Menú móvil, anclas, pestañas, acordeón y validación del formulario funcionan; el envío se probó simulando la respuesta de Formspree (no se enviaron correos reales).
 
 ### 15 nov 2026 (revisión y limpieza)
 
@@ -93,4 +113,4 @@ Ajustes a la página del curso "Conservadores en cosméticos":
 - Fusión de pull requests (actualizado el 29 oct 2026): Carlos autorizó que Claude publique directamente los cambios que él pida. Claude crea la rama, abre el pull request, espera a que pasen las verificaciones de Vercel, lo fusiona a `main` con `gh pr merge` y luego revisa la página en vivo, sin pedirle a Carlos que lo fusione. Solo aplica a cambios que Carlos pidió. La cuenta de `gh` tiene permisos de administrador y `main` no está protegida; si la app de Claude Code bloquea el comando de fusión, Carlos lo autoriza en el aviso de permisos.
 - Las apps de mensajería guardan en caché la vista previa de cada enlace. Si una vista previa vieja sigue apareciendo sin imagen, se puede forzar la actualización con el Post Inspector de LinkedIn o el Sharing Debugger de Facebook.
 - Los datos estructurados de `index.html` declaran el correo `hola@cognytia.mx`; Carlos confirmó que existe y es correcto.
-- `npm run lint` marca `'motion' is defined but never used` en archivos que usan `<motion.div>`. Es un falso positivo de la configuración de ESLint que ya existía; no afecta la compilación.
+- `npm run lint` marca `'motion' is defined but never used` en archivos que usan `<motion.div>`. Es un falso positivo de la configuración de ESLint que ya existía; no afecta la compilación. (En la rama del rediseño ya no aparece: no usa framer-motion.)
