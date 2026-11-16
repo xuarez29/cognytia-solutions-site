@@ -30,9 +30,9 @@ export default function Process() {
       <div className="shell">
         <div className="frame">
           <div className="pad section-y grid grid-cols-1 gap-10 lg:grid-cols-12">
-            <SectionHead id="proceso-titulo" label="Proceso" title="Nuestro proceso" className="lg:col-span-8" />
+            <SectionHead id="proceso-titulo" label="Nuestro proceso" title="De la idea a la realidad." className="lg:col-span-8" />
             <Reveal as="p" delay={0.1} className="lead self-end lg:col-span-4">
-              Cuatro pasos que convierten una idea en un producto que funciona.
+              Trabajamos por etapas, con objetivos claros, comunicación constante y avances visibles.
             </Reveal>
           </div>
 
@@ -90,7 +90,7 @@ export default function Process() {
                   >
                     <p className="mono flex h-[110px] items-start gap-3 text-ink-soft xs:h-[150px] lg:h-auto lg:items-center">
                       <span className={`node mt-[5px] lg:mt-0 ${i === active ? '' : 'node--hollow'}`} aria-hidden="true" />
-                      Paso {step.number}
+                      Etapa {step.number}
                     </p>
                     <div>
                       {/* El paso inactivo solo atenúa el título (conserva contraste 3:1) */}
@@ -103,6 +103,12 @@ export default function Process() {
                       </h3>
                       <p className="mt-5 max-w-[38ch] text-[clamp(1.05rem,1.5vw,1.3rem)] leading-[1.5] text-ink-soft">
                         {step.description}
+                      </p>
+                      <p className="mt-6 max-w-[44ch] border-t border-line pt-4 text-[15px] leading-[1.5]">
+                        <span className="mono mb-1.5 block text-[10.5px] uppercase tracking-[0.1em] text-ink-soft">
+                          Resultado
+                        </span>
+                        {step.result}
                       </p>
                     </div>
                   </div>

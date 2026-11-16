@@ -41,6 +41,22 @@ Flujo recomendado: crear una rama, subirla, revisar la vista previa de Vercel, a
 
 ## Historial
 
+### 16 nov 2026 (copy v2.0, rama `update/brand-messaging-v2`, PENDIENTE DE APROBACIÓN)
+
+Actualización del mensaje del sitio a partir del documento "Propuesta de actualización de copy v2.0" que escribió Carlos. Solo cambia la comunicación; el sistema visual, la paleta, el logo, la animación y las integraciones quedan igual. **No fusionar a `main` hasta que Carlos lo apruebe de forma explícita.**
+
+- **Posicionamiento:** descriptor "Soluciones digitales e inteligencia artificial" (antes "Especialistas en integración de IA"); lema "IA con propósito." sin cambio; propuesta de valor "Transformamos los desafíos de tu negocio en soluciones inteligentes."
+- **Textos nuevos** en Hero, Enfoque ("Primero el problema. Después la tecnología."), Servicios (ahora cuatro, con idea principal + párrafos; Notion es el cuarto y enlaza a su sección), Notion, Proceso (etapas Entendemos / Diseñamos / Construimos / Evolucionamos, cada una con su "Resultado"), Proyectos, Resultados, Testimonios (solo etiqueta y titular; las citas no se tocaron), Contacto, menú, pie y botón de WhatsApp.
+- **Secciones nuevas:** `src/sections/About.jsx` ("Sobre CognytIA", con el bloque del fundador) y `src/sections/Faq.jsx` (7 preguntas en `src/data/faq.js`, con `<details>` nativo). Orden: … Resultados → Nosotros → Experiencias → Preguntas → Contacto. La regla graduada ahora cuenta 11.
+- **Figura nueva:** `NotionSpace` en `ServiceFigure.jsx` (bloques sobre una base), para la fila del cuarto servicio.
+- **`SectionHead`** pinta en teal el punto final del titular cuando el título termina en punto.
+- **Formulario:** opciones nuevas (Notion, Capacitación, "Tengo una idea y quiero explorarla", Otro); "Correo electrónico"; botón "Hablemos de tu proyecto". Los campos que recibe Formspree no cambiaron de nombre.
+- **Regla de Carlos:** no usar "diagnóstico gratuito", "consulta gratuita" ni "llamada gratuita" como argumento comercial.
+- **Metadatos:** título, descripción, Open Graph, Twitter y JSON-LD con el mensaje nuevo; canonical y URLs sin cambio.
+- **No se hizo:** la sección de Capacitación en la página principal (el documento la deja opcional y la decisión del 28 oct fue mantener el curso aparte); sigue el enlace "Cursos" del menú. La página del curso no se tocó.
+- **Pendiente de Carlos antes de publicar:** verificar las cuatro cifras de Resultados y aclarar el periodo de las "+120 h". Hoy se muestran con una nota que dice que no son garantía y que pueden variar.
+- **Verificación local (build de producción):** compila y pasa `npm run lint`; revisado a 1440 y 375 px sin desbordamiento horizontal; validación del formulario y acordeón de preguntas funcionan. No se envió ningún mensaje real por el formulario.
+
 ### 16 nov 2026 (paleta "Electric Teal", publicada)
 
 Cambio solo de color sobre el rediseño "Human-Centered Industrial"; sin cambios de layout, tipografía, contenido ni comportamiento. Se probó en la rama `experiment/electric-teal` con vistas previas de Vercel y Carlos lo aprobó.

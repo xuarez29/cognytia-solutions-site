@@ -5,10 +5,13 @@ import { trackEvent } from '../lib/analytics'
 import { EMAIL, WHATSAPP_NUMBER, FORMSPREE_ID } from '../config/contact'
 
 const serviceOptions = [
-  { value: 'web', label: 'Desarrollo Web' },
+  { value: 'web', label: 'Desarrollo web y aplicaciones' },
   { value: 'ia', label: 'Integraciones con IA' },
-  { value: 'auto', label: 'Automatización de Procesos' },
-  { value: 'nosey', label: 'No sé aún — quiero platicar' },
+  { value: 'auto', label: 'Automatización de procesos' },
+  { value: 'notion', label: 'Implementación y consultoría Notion' },
+  { value: 'capacitacion', label: 'Capacitación' },
+  { value: 'idea', label: 'Tengo una idea y quiero explorarla' },
+  { value: 'otro', label: 'Otro' },
 ]
 
 // 524425955891 → +52 442 595 5891
@@ -41,8 +44,8 @@ export default function Contact() {
   const validate = () => {
     const e = {}
     if (!form.name.trim()) e.name = 'Tu nombre es requerido'
-    if (!form.email.trim()) e.email = 'Tu email es requerido'
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Email inválido'
+    if (!form.email.trim()) e.email = 'Tu correo es requerido'
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Correo inválido'
     if (!form.message.trim()) e.message = 'Cuéntanos algo sobre tu proyecto'
     return e
   }
@@ -110,14 +113,16 @@ export default function Contact() {
             <Reveal>
               <p className="label mb-6">
                 <span className="node" aria-hidden="true" />
-                Contacto
+                Hablemos
               </p>
               <h2 id="contacto-titulo" className="h2 max-w-[13ch]">
-                ¿Tienes un proyecto en mente? Cuéntanos<span className="text-teal">.</span>
+                Construyamos algo útil<span className="text-teal">.</span>
               </h2>
               <p className="lead mt-7 max-w-[40ch]">
-                No necesitas tener todo claro para escribirnos. Una conversación de 20 minutos puede cambiar la
-                dirección de un proyecto.
+                ¿Tienes una idea, un proceso que quieres mejorar o un desafío que aún no sabes cómo resolver?
+              </p>
+              <p className="mt-4 max-w-[44ch] text-ink-soft">
+                Cuéntanos sobre tu negocio. Exploremos cómo la tecnología puede ayudarte.
               </p>
             </Reveal>
 
@@ -139,8 +144,7 @@ export default function Contact() {
                 ))}
               </ul>
               <p className="mt-6 max-w-[44ch] text-[15px] text-ink-soft">
-                <strong className="font-medium text-ink">Primero entendemos tu proceso.</strong> Luego diseñamos la
-                solución adecuada. Hablemos.
+                <strong className="font-medium text-ink">Primero el problema.</strong> Después la tecnología.
               </p>
             </Reveal>
           </div>
@@ -182,7 +186,7 @@ export default function Contact() {
                         className="field"
                       />
                     </Field>
-                    <Field id="email" label="Email" required error={errors.email}>
+                    <Field id="email" label="Correo electrónico" required error={errors.email}>
                       <input
                         id="email"
                         name="email"
@@ -221,7 +225,7 @@ export default function Contact() {
                       onChange={handleChange('service')}
                       className="field"
                     >
-                      <option value="">Selecciona un servicio...</option>
+                      <option value="">Selecciona una opción...</option>
                       {serviceOptions.map((o) => (
                         <option key={o.value} value={o.value}>
                           {o.label}
@@ -253,7 +257,7 @@ export default function Contact() {
                   )}
 
                   <button type="submit" disabled={status === 'sending'} className="btn btn--solid mt-1 w-full">
-                    {status === 'sending' ? 'Enviando...' : 'Enviar mensaje'}
+                    {status === 'sending' ? 'Enviando...' : 'Hablemos de tu proyecto'}
                     {status === 'sending' ? (
                       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" style={{ animation: 'spin 0.9s linear infinite' }} aria-hidden="true">
                         <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" strokeOpacity="0.3" />
@@ -265,7 +269,7 @@ export default function Contact() {
                   </button>
 
                   <p className="mono text-center text-[11px] text-ink-soft">
-                    Sin spam, sin suscripciones. Solo una respuesta honesta.
+                    Sin spam, sin suscripciones. Solo una conversación sobre lo que podemos construir juntos.
                   </p>
                 </form>
               )}

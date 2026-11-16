@@ -2,10 +2,10 @@ import LogoAnimation from '../components/LogoAnimation'
 import { ArrowDown, ArrowRight, Replay } from '../components/Icons'
 
 const index = [
-  { n: '01', label: 'Desarrollo web', href: '#servicios' },
+  { n: '01', label: 'Desarrollo web y aplicaciones', href: '#servicios' },
   { n: '02', label: 'Integraciones con IA', href: '#servicios' },
   { n: '03', label: 'Automatización de procesos', href: '#servicios' },
-  { n: '04', label: 'Notion para empresas', href: '#notion' },
+  { n: '04', label: 'Implementación y consultoría Notion', href: '#notion' },
 ]
 
 export default function Hero() {
@@ -60,7 +60,7 @@ export default function Hero() {
             <div className="fade-in flex flex-wrap items-center justify-between gap-x-8 gap-y-2">
               <p className="label">
                 <span className="node" aria-hidden="true" />
-                Especialistas en integración de IA
+                Soluciones digitales e inteligencia artificial
               </p>
               <p className="label hidden sm:inline-flex">Querétaro, México</p>
             </div>
@@ -78,17 +78,22 @@ export default function Hero() {
             </h1>
 
             <div className="fade-in flex flex-col gap-8" style={{ '--d': '0.5s' }}>
-              <p className="lead max-w-[46ch]">
-                Desarrollamos soluciones web, integramos inteligencia artificial y automatizamos procesos
-                para que emprendedores y PyMEs crezcan con tecnología que funciona.
-              </p>
+              <div>
+                <p className="max-w-[26ch] text-[clamp(1.3rem,2.1vw,1.75rem)] leading-[1.18] tracking-[-0.025em]">
+                  Transformamos los desafíos de tu negocio en soluciones inteligentes.
+                </p>
+                <p className="lead mt-4 max-w-[48ch]">
+                  Desarrollamos aplicaciones, integramos inteligencia artificial y automatizamos procesos para
+                  ayudarte a trabajar mejor, crecer y convertir tus ideas en realidad.
+                </p>
+              </div>
               <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
                 <a href="#contacto" className="btn btn--solid">
-                  Agendar llamada
+                  Hablemos de tu proyecto
                   <ArrowRight />
                 </a>
                 <a href="#servicios" className="text-link">
-                  Ver qué hacemos
+                  Explorar soluciones
                   <ArrowDown />
                 </a>
               </div>

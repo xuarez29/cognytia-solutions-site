@@ -24,7 +24,7 @@ const schematics = {
   wiki: () => (
     <div className="grid h-full grid-cols-[auto_minmax(0,1fr)] gap-4">
       <ul className="flex flex-col gap-2.5 border-r border-line pr-4">
-        {['Políticas', 'Manuales', 'SOPs', 'Documentación'].map((t, i) => (
+        {['Políticas', 'Manuales', 'Procesos', 'Conocimiento'].map((t, i) => (
           <li key={t} className={`mono flex items-center gap-2 text-[10.5px] ${i === 1 ? 'text-ink' : 'text-ink-soft'}`}>
             <span className={`node !h-[6px] !w-[6px] ${i === 1 ? '' : 'node--hollow'}`} />
             {t}
@@ -146,15 +146,22 @@ export default function Notion() {
         <div className="frame grid grid-cols-1 lg:grid-cols-12">
           {/* Texto */}
           <div className="pad section-y lg:col-span-5 lg:border-r lg:border-line">
-            <SectionHead id="notion-titulo" label="Servicio especializado" title="Notion para empresas" />
+            <SectionHead id="notion-titulo" label="Especialización / Notion" title="Un espacio de trabajo conectado." />
             <Reveal delay={0.1}>
+              <p className="mono mt-6 text-[11.5px] uppercase tracking-[0.08em] text-ink-soft">
+                Implementación y consultoría especializada en Notion
+              </p>
               <p className="lead mt-8 max-w-[44ch]">
-                Centraliza conocimiento, procesos y ejecución en un solo lugar. Diseñamos, implementamos y
-                escalamos espacios de trabajo en Notion + IA para que tu empresa deje atrás la dispersión de
-                información y los silos operativos.
+                Cuando la información de una empresa está dispersa entre documentos, hojas de cálculo,
+                conversaciones y diferentes plataformas, trabajar y tomar decisiones se vuelve más complicado.
               </p>
               <p className="mt-4 max-w-[44ch] text-ink-soft">
-                Nuestro enfoque es práctico, eficiente y orientado a resultados medibles.
+                Diseñamos e implementamos entornos de trabajo en Notion que ayudan a organizar tu operación,
+                centralizar el conocimiento y conectar a tu equipo.
+              </p>
+              <p className="mt-4 max-w-[44ch] text-ink-soft">
+                Incorporamos automatizaciones e inteligencia artificial cuando aportan valor a tu forma de
+                trabajar.
               </p>
             </Reveal>
 
@@ -168,7 +175,7 @@ export default function Notion() {
             </ul>
 
             <a href="#contacto" className="btn btn--solid mt-10">
-              Agendar diagnóstico
+              Hablemos de tu implementación
               <ArrowRight />
             </a>
           </div>
@@ -188,7 +195,7 @@ export default function Notion() {
               <div className="grid grid-cols-1 md:grid-cols-[minmax(0,230px)_1fr]">
                 <div
                   role="tablist"
-                  aria-label="Lo que puedes lograr con Notion"
+                  aria-label="Áreas de implementación en Notion"
                   aria-orientation="vertical"
                   className="flex overflow-x-auto border-b border-line md:flex-col md:overflow-visible md:border-b-0 md:border-r"
                   onKeyDown={onKeyDown}

@@ -1,36 +1,41 @@
 /**
  * process.js
- * Los 4 pasos del proceso de trabajo de CognytIA.
- * `note` es la etiqueta técnica que acompaña a la figura de cada paso.
+ * Las 4 etapas de la metodología de trabajo de CognytIA.
+ * `note` es la etiqueta técnica que acompaña a la figura de cada etapa.
+ * `result` es lo que el cliente obtiene al terminar la etapa.
  */
 
 export const steps = [
   {
     number: '01',
-    title: 'Diagnóstico',
-    note: 'Medimos el proceso actual',
+    title: 'Entendemos',
+    note: 'Definimos el problema',
     description:
-      'Entendemos tu negocio, no solo el proyecto. Empezamos con preguntas incómodas y honestas.',
+      'Conocemos tu negocio, tus procesos y los desafíos que quieres resolver.',
+    result: 'Una definición clara del problema y las oportunidades de mejora.',
   },
   {
     number: '02',
-    title: 'Arquitectura',
+    title: 'Diseñamos',
     note: 'Trazamos la solución',
     description:
-      'Diseñamos la solución antes de escribir una línea de código. Sin sorpresas a mitad del camino.',
+      'Evaluamos alternativas, seleccionamos las tecnologías adecuadas y definimos cómo debe funcionar la solución.',
+    result: 'Una propuesta con alcance, tiempos y costos definidos.',
   },
   {
     number: '03',
-    title: 'Construcción',
-    note: 'Entregas visibles cada semana',
+    title: 'Construimos',
+    note: 'Avances por etapas',
     description:
-      'Desarrollo iterativo con entregas visibles cada semana. Siempre sabes en qué estamos.',
+      'Desarrollamos, probamos y refinamos la solución por etapas.',
+    result: 'Avances que puedes revisar y validar durante el desarrollo.',
   },
   {
     number: '04',
-    title: 'Escala',
-    note: 'Lanzamos, medimos y mejoramos',
+    title: 'Evolucionamos',
+    note: 'Implementamos, evaluamos y mejoramos',
     description:
-      'Lanzamos, medimos y mejoramos contigo. El lanzamiento es el inicio, no el final.',
+      'Implementamos la solución, evaluamos su funcionamiento e identificamos oportunidades de mejora.',
+    result: 'Una herramienta funcional y preparada para evolucionar con tu negocio.',
   },
 ]

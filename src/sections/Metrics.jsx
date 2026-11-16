@@ -30,12 +30,19 @@ export default function Metrics() {
     <section ref={ref} className="theme-dark" aria-labelledby="resultados-titulo">
       <div className="shell">
         <div className="frame">
-          <div className="pad flex flex-wrap items-center justify-between gap-x-10 gap-y-3 py-6">
-            <h2 id="resultados-titulo" className="label">
-              <span className="node" aria-hidden="true" />
-              Resultados
-            </h2>
-            <p className="label">Reportados por clientes · 2025–2026</p>
+          <div className="pad grid grid-cols-1 gap-8 py-[clamp(48px,6vw,88px)] lg:grid-cols-12">
+            <div className="lg:col-span-8">
+              <p className="label mb-6">
+                <span className="node" aria-hidden="true" />
+                Resultados
+              </p>
+              <h2 id="resultados-titulo" className="h2 max-w-[16ch]">
+                Tecnología que genera valor<span className="text-teal">.</span>
+              </h2>
+            </div>
+            <p className="lead self-end lg:col-span-4">
+              El valor de una solución tecnológica está en lo que permite mejorar.
+            </p>
           </div>
 
           <dl className="grid grid-cols-2 border-t border-line lg:grid-cols-4">
@@ -58,6 +65,12 @@ export default function Metrics() {
               </div>
             ))}
           </dl>
+
+          <p className="border-t border-line px-[var(--pad)] py-5 text-[13.5px] leading-[1.5] text-ink-soft">
+            Cifras de nuestra experiencia en proyectos anteriores; no son una garantía de rendimiento. Los
+            resultados y los tiempos de implementación pueden variar según el alcance y las características de
+            cada proyecto.
+          </p>
         </div>
       </div>
     </section>

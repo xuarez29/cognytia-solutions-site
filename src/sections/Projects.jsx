@@ -33,6 +33,10 @@ function Detail({ project }) {
   return (
     <div key={project.id} className="fade-in flex h-full flex-col gap-10">
       <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-4">
+        <p className="label w-full">
+          <span className="node" aria-hidden="true" />
+          El resultado
+        </p>
         <p className="text-[clamp(2.6rem,6.2vw,5.4rem)] leading-[0.92] tracking-[-0.05em]">
           {project.metric}
         </p>
@@ -45,7 +49,7 @@ function Detail({ project }) {
         <div>
           <p className="label mb-3">
             <span className="node node--hollow" aria-hidden="true" />
-            El reto
+            El desafío
           </p>
           <p className="text-[15.5px] leading-[1.6] text-ink-soft">{project.challenge}</p>
         </div>
@@ -86,9 +90,10 @@ export default function Projects() {
       <div className="shell">
         <div className="frame">
           <div className="pad section-y grid grid-cols-1 gap-10 lg:grid-cols-12">
-            <SectionHead id="proyectos-titulo" label="Proyectos" title="Proyectos que hablan" className="lg:col-span-8" />
+            <SectionHead id="proyectos-titulo" label="Proyectos" title="De los desafíos a las soluciones." className="lg:col-span-8" />
             <Reveal as="p" delay={0.1} className="lead self-end lg:col-span-4">
-              Cada proyecto tiene un antes y un después. Aquí están algunos.
+              Cada negocio tiene retos diferentes. Estos son algunos ejemplos de cómo aplicamos la tecnología para
+              resolverlos.
             </Reveal>
           </div>
 

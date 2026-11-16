@@ -5,7 +5,7 @@ import { useScrollProgress } from '../hooks/useScrollProgress'
  * Transición entre secciones: una regla graduada que se desliza con el
  * scroll, como el carro de una máquina. Lleva el índice de la sección.
  */
-export default function Ruler({ index, total = '08', label }) {
+export default function Ruler({ index, total = '11', label }) {
   const ref = useRef(null)
   const ticks = useRef(null)
 
