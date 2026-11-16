@@ -2,7 +2,7 @@
 
 Bitácora del sitio para retomar el trabajo. Léela antes de hacer cambios y actualízala al terminar.
 
-Última actualización: 15 de noviembre de 2026 (rediseño publicado).
+Última actualización: 15 de noviembre de 2026, cierre del día (rediseño publicado y guía de marca para slides).
 
 ---
 
@@ -14,6 +14,7 @@ Bitácora del sitio para retomar el trabajo. Léela antes de hacer cambios y act
 | Repositorio | GitHub `xuarez29/cognytia-solutions-site`, rama de trabajo `main` |
 | Hosting | Vercel, proyecto `cognytia-solutions-site-iix6` |
 | Copia local | `/Volumes/CognytIA/CognytIA/CognytIA-Website/cognytia-solutions-react-prod` (disco externo "CognytIA") |
+| Guía de marca para slides | `/Volumes/CognytIA/CognytIA/CognytIA-Website/marca/` (fuera del repositorio; ver historial del 15 nov) |
 
 **Despliegue:** todo push o merge a `main` se publica solo en Vercel en uno o dos minutos. Cada rama distinta de `main` genera una vista previa en Vercel (requiere iniciar sesión en Vercel para verla).
 
@@ -54,7 +55,17 @@ Rediseño completo de la página principal, pedido por Carlos. Se trabajó en la
    - **Prerender:** `npm run build` ahora también renderiza la página a HTML (`scripts/prerender.js`) y React la hidrata. Si el prerender no corre, el sitio funciona igual como SPA.
    - SEO: se conservaron título, descripción, canonical, Open Graph, Twitter y JSON-LD; se agregaron el lema y el catálogo de servicios al JSON-LD, `apple-touch-icon` y se actualizó `lastmod` del sitemap.
    - Nuevos eventos `whatsapp_click` con `source: 'contact_section'` y `source: 'footer'` (antes solo el botón flotante lo medía).
-7. **Verificación (local, build de producción).** Compila y pasa `npm run lint` sin errores. Probado a 375, 768 y 1440 px sin desbordamiento horizontal. Menú móvil, anclas, pestañas, acordeón y validación del formulario funcionan; el envío se probó simulando la respuesta de Formspree (no se enviaron correos reales).
+7. **Verificación (local, build de producción).** Compila y pasa `npm run lint` sin errores. Probado a 375, 768 y 1440 px sin desbordamiento horizontal. Menú móvil, anclas, pestañas, acordeón y validación del formulario funcionan. Lighthouse (local): rendimiento 96 en móvil y 100 en escritorio, accesibilidad 97, SEO 100 (producción anterior: 76 / 91 / 100). El único aviso de accesibilidad es el contraste del "IA" teal del logotipo, que se dejó igual por ser color de marca.
+8. **Verificación en producción (después de fusionar).** Responden 200 la raíz (con y sin `www`), el curso (con y sin `/` final), su aviso de privacidad, `sitemap.xml`, `robots.txt`, `og-image.jpg` y el favicon. La página del curso es idéntica byte a byte. GA4 y Vercel Analytics cargan; sin errores en consola. **Carlos confirmó** que un mensaje real del formulario llegó a su correo y que el sitio se ve bien en Safari de iPhone.
+
+### 15 nov 2026 (guía de marca para slides)
+
+A pedido de Carlos, el sistema visual del rediseño quedó documentado para usarlo en presentaciones. Vive **fuera del repositorio** (no se publica en el sitio), en `/Volumes/CognytIA/CognytIA/CognytIA-Website/marca/`:
+
+- `guia-estilo-slides-cognytia.md`: principios, paleta con usos y proporciones, reglas de contraste, tipografía con escala en puntos (PowerPoint/Keynote y factor para Google Slides), retícula 16:9, elementos de marca (nodos, láminas técnicas, isométricos, regla graduada, botones), reglas del logo, 9 plantillas de slide, movimiento, voz y una instrucción lista para copiar a herramientas de IA.
+- `isotipo-cognytia-fondo-claro.svg` e `isotipo-cognytia-fondo-oscuro.svg`: el isotipo exportado desde `src/data/logoGeometry.js` (mismo trazo que el sitio).
+
+Si cambian colores, tipografía o el estilo del sitio, actualizar también esta guía.
 
 ### 15 nov 2026 (revisión y limpieza)
 
@@ -103,7 +114,8 @@ Ajustes a la página del curso "Conservadores en cosméticos":
 
 ## Pendientes
 
-1. **Tailwind 3 → 4.** Los 3 avisos moderados de `npm audit` vienen de Tailwind 3 y solo se resuelven migrando a Tailwind 4, que cambia la configuración y puede romper estilos. Son de compilación y no afectan al sitio publicado. No correr `npm audit fix --force`.
+1. **Retomar el 16 nov 2026.** Carlos cerró la sesión del 15 nov con el rediseño publicado y verificado; no quedó nada a medias. Revisar con él qué sigue.
+2. **Tailwind 3 → 4.** Los 3 avisos moderados de `npm audit` vienen de Tailwind 3 y solo se resuelven migrando a Tailwind 4, que cambia la configuración y puede romper estilos. Son de compilación y no afectan al sitio publicado. No correr `npm audit fix --force`.
 
 ## Notas
 
