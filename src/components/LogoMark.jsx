@@ -12,14 +12,14 @@ export default function LogoMark({ className = '', title }) {
       aria-hidden={title ? undefined : true}
     >
       {LINES.map((d) => (
-        <path key={d} d={d} stroke="#3DBCB8" strokeWidth="16" strokeLinecap="round" />
+        <path key={d} d={d} stroke="#00C4BA" strokeWidth="16" strokeLinecap="round" />
       ))}
-      <path d={C_PATH} stroke="#3DBCB8" strokeWidth="66" strokeLinejoin="round" strokeLinecap="round" />
+      <path d={C_PATH} stroke="#00C4BA" strokeWidth="66" strokeLinejoin="round" strokeLinecap="round" />
       {NODES.map((n) =>
         n.filled ? (
-          <circle key={`${n.x}-${n.y}`} cx={n.x} cy={n.y} r="80" fill="#3DBCB8" />
+          <circle key={`${n.x}-${n.y}`} cx={n.x} cy={n.y} r="80" fill="#00C4BA" />
         ) : (
-          <circle key={`${n.x}-${n.y}`} cx={n.x} cy={n.y} r="72" fill="#fff" stroke="#3DBCB8" strokeWidth="20" />
+          <circle key={`${n.x}-${n.y}`} cx={n.x} cy={n.y} r="72" fill="#fff" stroke="#00C4BA" strokeWidth="20" />
         )
       )}
     </svg>

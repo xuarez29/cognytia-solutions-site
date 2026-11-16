@@ -8,9 +8,9 @@ import { C_PATH, LINES, NODES } from '../data/logoGeometry'
 
 const RINGS = [NODES[0], NODES[3], NODES[4]]
 
-const TEAL = '#3DBCB8'
-const SPARK = '#1FB5B0'
-const TRAIL_COLOR = '#7DD9D5'
+const TEAL = '#00C4BA'
+const SPARK = '#00AAA2'
+const TRAIL_COLOR = '#66E3DB'
 const TRAIL = 7
 
 // Línea de tiempo (segundos)
@@ -220,9 +220,9 @@ export default function LogoAnimation({ className = '' }) {
       <svg ref={svgRef} viewBox="0 0 1900 2010" className="w-full h-auto overflow-visible" aria-hidden="true">
         <defs>
           <linearGradient id={grad} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#6FD6D2" />
+            <stop offset="0" stopColor="#4FDDD4" />
             <stop offset=".45" stopColor={TEAL} />
-            <stop offset="1" stopColor="#2A8F8C" />
+            <stop offset="1" stopColor="#009A93" />
           </linearGradient>
           <linearGradient id={shineGrad} x1="0" y1="0" x2="1" y2="0">
             <stop offset="0" stopColor="#fff" stopOpacity="0" />

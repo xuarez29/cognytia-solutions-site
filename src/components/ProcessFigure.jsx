@@ -100,7 +100,7 @@ export default function ProcessFigure({ stage = 0, animate = false, className = 
           )
         })}
         <g style={{ '--sx': '86px', '--sy': '50px', animation: animate ? 'scan 5s ease-in-out infinite' : 'none' }}>
-          <ellipse cx={P(-50, 0, 6)[0]} cy={P(-50, 0, 6)[1]} rx="34" ry="19.6" className="edge" fill="rgba(61,188,184,0.14)" />
+          <ellipse cx={P(-50, 0, 6)[0]} cy={P(-50, 0, 6)[1]} rx="34" ry="19.6" className="edge" fill="rgba(0,196,186,0.16)" />
           <line className="edge" {...line(P(-50, 0, 6), P(-50, 0, 46))} />
           <circle cx={P(-50, 0, 46)[0]} cy={P(-50, 0, 46)[1]} r="4" fill="var(--ink)" />
         </g>
