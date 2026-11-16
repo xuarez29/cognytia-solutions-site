@@ -20,6 +20,8 @@
   --teal-deep: #123638;
   --teal-mid: #205455;
   --teal-tint: #DDF7F4;
+  --teal-logo: #008F87; /* turquesa del logo: más sólido que el acento */
+  --teal-logo-deep: #007C78;
   --word: #606B77;
   --line: rgba(32, 39, 40, 0.16);
   --line-soft: rgba(32, 39, 40, 0.08);
@@ -203,7 +205,7 @@
 }
 .wordmark b {
   font-weight: inherit;
-  color: var(--teal);
+  color: var(--teal-logo);
 }
 
 /* ── Botones ────────────────────────────────────────────────────────── */
@@ -610,13 +612,13 @@ select.field {
 /* ── Animación del logo en el Hero (LogoAnimation.jsx) ── */
 .logo-anim:focus-visible { outline-offset: 8px; border-radius: 24px; }
 .logo-anim .la-c { fill: none; stroke-width: 66; stroke-linejoin: round; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
-.logo-anim .la-line { fill: none; stroke: #00C4BA; stroke-width: 16; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.logo-anim .la-line { fill: none; stroke: #007C78; stroke-width: 16; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
 .logo-anim .la-lines .la-line { animation: la-draw .7s cubic-bezier(.5,0,.2,1) forwards; }
 .logo-anim .la-node { transform-box: fill-box; transform-origin: center; transform: scale(0); }
 .logo-anim .la-nodes .la-node { animation: la-pop .5s cubic-bezier(.3,1.7,.5,1) forwards; }
-.logo-anim .la-node-filled { fill: #00C4BA; }
-.logo-anim .la-node-hollow { fill: #fff; stroke: #00C4BA; stroke-width: 20; }
-.logo-anim .la-ring { fill: none; stroke: #00AAA2; stroke-width: 6; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.logo-anim .la-node-filled { fill: #008F87; }
+.logo-anim .la-node-hollow { fill: #fff; stroke: #008F87; stroke-width: 20; }
+.logo-anim .la-ring { fill: none; stroke: #00C4BA; stroke-width: 6; opacity: 0; transform-box: fill-box; transform-origin: center; }
 .logo-anim .la-pulses .la-ring { animation: la-ring 2.8s ease-out infinite; }
 .logo-anim .la-pulse-group { opacity: 0; transition: opacity .8s; }
 .logo-anim .la-pulses .la-pulse-group { opacity: 1; }

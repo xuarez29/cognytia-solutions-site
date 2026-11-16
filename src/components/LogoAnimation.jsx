@@ -8,9 +8,13 @@ import { C_PATH, LINES, NODES } from '../data/logoGeometry'
 
 const RINGS = [NODES[0], NODES[3], NODES[4]]
 
-const TEAL = '#00C4BA'
-const SPARK = '#00AAA2'
-const TRAIL_COLOR = '#66E3DB'
+// Jerarquía de color del logo (experimento Electric Teal):
+// cuerpo oscuro y sólido, tonos intermedios en movimiento, brillos claros.
+const LOGO = '#008F87' // color principal del isotipo
+const LOGO_DARK = '#007C78' // acentos estructurales
+const MID = '#00AAA2' // tonos intermedios de la animación
+const BRIGHT = '#00C4BA' // destellos y pulsos
+const TRAIL_COLOR = '#70DDD5' // estelas y resplandor
 const TRAIL = 7
 
 // Línea de tiempo (segundos)
@@ -62,7 +66,7 @@ export default function LogoAnimation({ className = '' }) {
     // Pulsos tipo cometa: cabeza intensa y estela que se desvanece
     const comets = lines.map(() =>
       Array.from({ length: TRAIL }, (_, j) => {
-        const c = circle(18 - j * 2, j === 0 ? SPARK : TRAIL_COLOR, (1 - j / TRAIL).toFixed(2))
+        const c = circle(18 - j * 2, j === 0 ? BRIGHT : TRAIL_COLOR, (1 - j / TRAIL).toFixed(2))
         pulseG.appendChild(c)
         return c
       })
@@ -78,7 +82,7 @@ export default function LogoAnimation({ className = '' }) {
           const d = 500 + Math.random() * 900
           const arrive = NODES_AT + i * 0.1
           const dur = 0.9 + Math.random() * 0.5
-          const el = circle((8 + Math.random() * 10).toFixed(1), k % 3 ? TEAL : SPARK, 0)
+          const el = circle((8 + Math.random() * 10).toFixed(1), k % 3 ? MID : BRIGHT, 0)
           partG.appendChild(el)
           parts.push({ el, x, y, sx: 950 + Math.cos(a) * d, sy: 1005 + Math.sin(a) * d, start: arrive - dur, dur })
         }
@@ -220,9 +224,9 @@ export default function LogoAnimation({ className = '' }) {
       <svg ref={svgRef} viewBox="0 0 1900 2010" className="w-full h-auto overflow-visible" aria-hidden="true">
         <defs>
           <linearGradient id={grad} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stopColor="#4FDDD4" />
-            <stop offset=".45" stopColor={TEAL} />
-            <stop offset="1" stopColor="#009A93" />
+            <stop offset="0" stopColor={MID} />
+            <stop offset=".4" stopColor={LOGO} />
+            <stop offset="1" stopColor={LOGO_DARK} />
           </linearGradient>
           <linearGradient id={shineGrad} x1="0" y1="0" x2="1" y2="0">
             <stop offset="0" stopColor="#fff" stopOpacity="0" />
@@ -271,7 +275,7 @@ export default function LogoAnimation({ className = '' }) {
           stroke={`url(#${grad})`}
           filter={`url(#${soft})`}
         />
-        <circle ref={headRef} r="46" fill={SPARK} opacity="0" filter={`url(#${glow})`} />
+        <circle ref={headRef} r="46" fill={BRIGHT} opacity="0" filter={`url(#${glow})`} />
 
         <g mask={`url(#${mask})`}>
           <rect ref={shineRef} x="-900" y="-100" width="360" height="2300" fill={`url(#${shineGrad})`} transform="skewX(-18)" />
