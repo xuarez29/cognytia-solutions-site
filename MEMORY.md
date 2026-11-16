@@ -2,7 +2,7 @@
 
 Bitácora del sitio para retomar el trabajo. Léela antes de hacer cambios y actualízala al terminar.
 
-Última actualización: 16 de noviembre de 2026 (paleta "Electric Teal" publicada).
+Última actualización: 16 de noviembre de 2026, cierre del día (paleta "Electric Teal", imágenes nuevas y guía de marca en PDF).
 
 ---
 
@@ -51,7 +51,17 @@ Cambio solo de color sobre el rediseño "Human-Centered Industrial"; sin cambios
 - **Botones:** el principal (`.btn--solid`) y "Hablemos" del menú son teal con texto y borde en teal profundo; al pasar el cursor se invierten. El botón flotante de WhatsApp sigue oscuro.
 - **Contraste:** el teal `#00C4BA` da 2:1 sobre el lienzo claro, así que no se usa para texto pequeño ahí; sobre el oscuro da 6:1.
 - La página del curso de conservadores no se tocó.
+- PRs: #28 (paleta, logo y botones) y #29 (imágenes). Ambos publicados y verificados en producción.
 - **Imágenes de `public/`** (PR aparte, mismo día): `logo-hero.png` regenerado desde la geometría del isotipo con `#00A69C` y `#008F87`; `favicon-256x256.png` invertido (isotipo blanco sobre cuadro `#00A69C`, sin esquinas redondeadas porque también es el ícono de iPhone) para que se vea en la pestaña; `og-image.jpg` rehecha con el sistema visual actual (antes era del diseño viejo, fondo azul). Se generaron con HTML/SVG y Chrome en modo headless; no hay script en el repo. Las apps de mensajería pueden tardar en mostrar la vista previa nueva.
+
+### 16 nov 2026 (guía de marca: actualización y PDF)
+
+Todo en `/Volumes/CognytIA/CognytIA/CognytIA-Website/marca/`, fuera del repositorio.
+
+- **`guia-estilo-slides-cognytia.md` pasó a la versión 1.1:** paleta "Electric Teal" completa (con los tonos derivados para líneas, slides oscuras e isométricos), turquesa del logo `#00A69C` y botones en teal con texto en teal profundo.
+- **Isotipos SVG:** `-fondo-claro` con `#00A69C` y conexiones `#008F87`; `-fondo-oscuro` en `#00C4BA` sobre `#123638` (decisión de Claude: el turquesa del logo se apaga sobre oscuro; el sitio no tiene logo sobre fondo oscuro). Nuevo `isotipo-cognytia-invertido.svg`, igual al favicon, para espacios de menos de 24 px.
+- **`guia-de-marca-cognytia.pdf`** (16 páginas, carta): la guía maquetada con el estilo de la marca, con portada, muestras de color, los logos, un ejemplo dibujado de cada elemento gráfico (sección 6) y una miniatura de cada plantilla de slide (sección 8). Las miniaturas usan textos reales del sitio (servicio, pasos del proceso, métricas, testimonio de Jorge R. recortado, contacto); son de relleno el título de la portada, "Cómo trabajamos" y la cifra del caso de éxito, que es el ejemplo de la guía.
+- **Para regenerar el PDF:** `python3 generar-pdf/generar_pdf.py` desde `marca/`. Necesita Google Chrome. El texto sale del Markdown, pero los colores de la portada, los ejemplos y las miniaturas están escritos en `generar_pdf.py`, `figs.py` y `slides.py`; si cambia la paleta hay que actualizarlos ahí. Si se renombra una subsección de las secciones 6 u 8, el script se detiene y dice cuál falta.
 
 ### 15 nov 2026 (rediseño "Human-Centered Industrial", PR #26, publicado)
 
@@ -126,8 +136,9 @@ Ajustes a la página del curso "Conservadores en cosméticos":
 
 ## Pendientes
 
-1. **Retomar el 16 nov 2026.** Carlos cerró la sesión del 15 nov con el rediseño publicado y verificado; no quedó nada a medias. Revisar con él qué sigue.
-2. **Tailwind 3 → 4.** Los 3 avisos moderados de `npm audit` vienen de Tailwind 3 y solo se resuelven migrando a Tailwind 4, que cambia la configuración y puede romper estilos. Son de compilación y no afectan al sitio publicado. No correr `npm audit fix --force`.
+1. **Vista previa al compartir.** La `og-image.jpg` nueva ya está en producción, pero WhatsApp, LinkedIn y Facebook pueden seguir mostrando la anterior (fondo azul) hasta que refresquen su caché; se fuerza con el Post Inspector de LinkedIn o el Sharing Debugger de Facebook. No se ha comprobado.
+2. **Logo en datos estructurados.** El JSON-LD de `index.html` apunta a `favicon-256x256.png`, que ahora es la versión invertida. Si Carlos prefiere que Google vea el isotipo sobre blanco, apuntarlo a `logo-hero.png`.
+3. **Tailwind 3 → 4.** Los 3 avisos moderados de `npm audit` vienen de Tailwind 3 y solo se resuelven migrando a Tailwind 4, que cambia la configuración y puede romper estilos. Son de compilación y no afectan al sitio publicado. No correr `npm audit fix --force`.
 
 ## Notas
 
