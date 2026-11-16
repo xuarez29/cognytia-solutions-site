@@ -2,7 +2,7 @@
 
 Bitácora del sitio para retomar el trabajo. Léela antes de hacer cambios y actualízala al terminar.
 
-Última actualización: 28 de octubre de 2026.
+Última actualización: 15 de noviembre de 2026.
 
 ---
 
@@ -39,7 +39,22 @@ Flujo recomendado: crear una rama, subirla, revisar la vista previa de Vercel, a
 
 ## Historial
 
-### 28 oct 2026 (rama `curso-conservadores-cosmeticos`, sin publicar)
+### 15 nov 2026 (revisión y limpieza)
+
+1. **Comparación con el sitio en vivo.** La copia local, `origin/main` y producción están en el mismo commit (`647064d`, PR #24). Los archivos de `public/` son idénticos byte a byte a los publicados, y la compilación local produce el mismo JS y CSS. La única diferencia es que en Vercel sí están configuradas `VITE_WHATSAPP_NUMBER` y `VITE_FORMSPREE_ID`, con los mismos valores que los de respaldo.
+2. **Limpieza local.** Se borró `dist/` (compilación vieja del 28 oct), el archivo `PROMPT-continuar-diagnostico-cognytia.md` y un `package-lock.json` vacío en la carpeta superior, una copia duplicada `.git/index 2` y la referencia a la rama remota `nota-iva-tarjeta`, que ya no existía.
+
+### 29 oct 2026 (PRs #15 a #24, publicados)
+
+Ajustes a la página del curso "Conservadores en cosméticos":
+- Botones de reserva del encabezado y de la barra móvil abren WhatsApp; en celular se quitó el botón del encabezado.
+- Correo de informes en el pie de página.
+- Preguntas frecuentes: preguntas sobre formulaciones, confirmación por WhatsApp y que con factura el precio es más IVA.
+- Ajustes de copy; la tarjeta de precio no menciona factura y lleva una nota discreta de IVA.
+- GA4 en la página del curso, con eventos de clic en WhatsApp y correo.
+- Aviso de privacidad en `/cursos/conservadores-cosmeticos/privacidad/` (regla propia en `vercel.json`) con enlace en el pie.
+
+### 28 oct 2026 (curso publicado)
 
 1. **Curso "Conservadores en cosméticos" como página independiente.**
    - Página completa del curso en `public/cursos/conservadores-cosmeticos/` (HTML y CSS propios, no React). Se sirve en `/cursos/conservadores-cosmeticos/`; `vercel.json` tiene una regla antes de la reescritura general para que la ruta sin `/` final también funcione.
@@ -47,6 +62,7 @@ Flujo recomendado: crear una rama, subirla, revisar la vista previa de Vercel, a
    - `Navbar.jsx` y `Footer.jsx` ahora dejan navegar normal los enlaces que no empiezan con `#`; antes todos se interceptaban para desplazarse dentro de la página.
    - La fuente original de la página del curso está en `/Volumes/CognytIA/Projects/Cursos/Cosmeticos/sites/conservadores-cosmeticos/dist`. Si se edita una, hay que copiar los cambios a la otra.
    - Página del curso agregada a `public/sitemap.xml`.
+   - También se cambiaron la imagen del hero, la de vista previa al compartir y la foto del instructor, y se agregaron el precio regular y la fecha de cierre de inscripciones.
 
 ### 23 oct 2026
 
@@ -74,7 +90,6 @@ Flujo recomendado: crear una rama, subirla, revisar la vista previa de Vercel, a
 
 ## Notas
 
-- El archivo `PROMPT-continuar-diagnostico-cognytia.md` en la carpeta superior (`CognytIA-Website/`) quedó desactualizado: dice que la copia local está en la versión vieja y lista pendientes que ya se resolvieron. Esta bitácora lo reemplaza; se puede borrar.
 - Fusión de pull requests (actualizado el 29 oct 2026): Carlos autorizó que Claude publique directamente los cambios que él pida. Claude crea la rama, abre el pull request, espera a que pasen las verificaciones de Vercel, lo fusiona a `main` con `gh pr merge` y luego revisa la página en vivo, sin pedirle a Carlos que lo fusione. Solo aplica a cambios que Carlos pidió. La cuenta de `gh` tiene permisos de administrador y `main` no está protegida; si la app de Claude Code bloquea el comando de fusión, Carlos lo autoriza en el aviso de permisos.
 - Las apps de mensajería guardan en caché la vista previa de cada enlace. Si una vista previa vieja sigue apareciendo sin imagen, se puede forzar la actualización con el Post Inspector de LinkedIn o el Sharing Debugger de Facebook.
 - Los datos estructurados de `index.html` declaran el correo `hola@cognytia.mx`; Carlos confirmó que existe y es correcto.
