@@ -10,9 +10,9 @@ const RINGS = [NODES[0], NODES[3], NODES[4]]
 
 // Jerarquía de color del logo (experimento Electric Teal):
 // cuerpo oscuro y sólido, tonos intermedios en movimiento, brillos claros.
-const LOGO = '#008F87' // color principal del isotipo
-const LOGO_DARK = '#007C78' // acentos estructurales
-const MID = '#00AAA2' // tonos intermedios de la animación
+const LOGO = '#00A69C' // Electric Teal Medium: color principal del isotipo
+const LOGO_DARK = '#008F87' // acentos estructurales y sombras
+const MID = '#00B5AB' // tonos intermedios de la animación
 const BRIGHT = '#00C4BA' // destellos y pulsos
 const TRAIL_COLOR = '#70DDD5' // estelas y resplandor
 const TRAIL = 7

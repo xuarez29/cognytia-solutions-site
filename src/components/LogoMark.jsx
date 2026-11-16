@@ -1,9 +1,9 @@
 import { C_PATH, LINES, NODES } from '../data/logoGeometry'
 
-// Turquesa del logo: más oscuro que el acento Electric Teal para que
+// Turquesa del logo: un paso más oscuro que el acento Electric Teal para que
 // el isotipo tenga peso sobre el lienzo claro.
-const LOGO = '#008F87'
-const LOGO_DARK = '#007C78'
+const LOGO = '#00A69C' // Electric Teal Medium
+const LOGO_DARK = '#008F87'
 
 /** Isotipo estático de CognytIA, con el mismo trazo que la animación del hero. */
 export default function LogoMark({ className = '', title }) {
