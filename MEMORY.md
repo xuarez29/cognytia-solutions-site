@@ -2,7 +2,7 @@
 
 Bitácora del sitio para retomar el trabajo. Léela antes de hacer cambios y actualízala al terminar.
 
-Última actualización: 15 de noviembre de 2026.
+Última actualización: 15 de noviembre de 2026 (rediseño publicado).
 
 ---
 
@@ -19,15 +19,12 @@ Bitácora del sitio para retomar el trabajo. Léela antes de hacer cambios y act
 
 ## Stack
 
-En `main` (producción):
-
-- React 19 + Vite 7 + Tailwind CSS 3 + framer-motion + lucide-react.
-- Fuentes auto-hospedadas con `@fontsource-variable`: DM Sans (títulos), Inter (texto) y JetBrains Mono (etiquetas).
-- Sitio de una sola página. `src/App.jsx` carga `Navbar`, `Hero` y `Services` de inmediato; el resto de las secciones (`src/sections/`) se cargan diferidas con `lazy`.
-- Colores de marca en `tailwind.config.js`: teal `#3DBCB8`, oscuro `#0A2E2E`.
-- `vercel.json` reescribe todas las rutas a `/`.
-
-En la rama `redesign/human-industrial` (rediseño, ver historial del 15 nov): mismo React + Vite + Tailwind 3, pero sin framer-motion, lucide-react ni Inter; el build agrega un prerender. El detalle está en `README.md` de esa rama.
+- React 19 + Vite 7 + Tailwind CSS 3. Sin librerías de animación ni de íconos: las animaciones son CSS y dos hooks propios (`useInView`, `useScrollProgress`); los íconos son SVG en `src/components/Icons.jsx`.
+- Fuentes auto-hospedadas con `@fontsource-variable`: DM Sans (logotipo, títulos y texto) y JetBrains Mono (etiquetas).
+- Sitio de una sola página. `src/App.jsx` define el orden de las secciones (`src/sections/`).
+- `npm run build` incluye un prerender (`scripts/prerender.js`): deja el HTML de la página en `dist/index.html` y React lo hidrata. No usar `window` ni `document` durante el render.
+- Sistema visual en `src/index.css` (variables, retícula, tipografía, botones). Colores de marca en `tailwind.config.js`: teal `#3DBCB8`, oscuro `#0A2E2E`, gris del logotipo `#606B77`.
+- `vercel.json` reescribe todas las rutas a `/` (con reglas propias antes para la página del curso).
 
 ## Cómo trabajar
 
@@ -43,9 +40,9 @@ Flujo recomendado: crear una rama, subirla, revisar la vista previa de Vercel, a
 
 ## Historial
 
-### 15 nov 2026 (rediseño "Human-Centered Industrial" — rama `redesign/human-industrial`, SIN publicar)
+### 15 nov 2026 (rediseño "Human-Centered Industrial", PR #26, publicado)
 
-Rediseño completo de la página principal, pedido por Carlos. **Vive solo en la rama `redesign/human-industrial`; no se fusiona a `main` ni se publica sin su aprobación explícita** (para este trabajo no aplica la autorización general de fusionar que está en Notas).
+Rediseño completo de la página principal, pedido por Carlos. Se trabajó en la rama `redesign/human-industrial`, se revisó en la vista previa de Vercel y se publicó el mismo día con el PR #26, después de que Carlos lo aprobó de forma explícita. El diseño anterior sigue en el historial de `main` (commit `5bd71f4`) por si hay que volver a él.
 
 1. **Dirección visual.** Lienzo claro, retícula visible, titulares editoriales grandes, etiquetas en mono y figuras isométricas propias. La señal de marca son los nodos del isotipo: marcan los cruces de la retícula, las viñetas y los estados activos.
 2. **Lo que se conservó.** Colores corporativos (mismos valores), logotipo "CognytIA" en DM Sans gris + teal, isotipo y su animación original del hero (`LogoAnimation.jsx` sin cambios de comportamiento; solo se movió su geometría a `src/data/logoGeometry.js` para reutilizarla en el isotipo estático), lema "IA con propósito.", servicios, proyectos, métricas, testimonios, formulario (Formspree, mismos campos y mismo cuerpo), WhatsApp, GA4, Vercel Analytics y el enlace a Cursos.
@@ -113,4 +110,4 @@ Ajustes a la página del curso "Conservadores en cosméticos":
 - Fusión de pull requests (actualizado el 29 oct 2026): Carlos autorizó que Claude publique directamente los cambios que él pida. Claude crea la rama, abre el pull request, espera a que pasen las verificaciones de Vercel, lo fusiona a `main` con `gh pr merge` y luego revisa la página en vivo, sin pedirle a Carlos que lo fusione. Solo aplica a cambios que Carlos pidió. La cuenta de `gh` tiene permisos de administrador y `main` no está protegida; si la app de Claude Code bloquea el comando de fusión, Carlos lo autoriza en el aviso de permisos.
 - Las apps de mensajería guardan en caché la vista previa de cada enlace. Si una vista previa vieja sigue apareciendo sin imagen, se puede forzar la actualización con el Post Inspector de LinkedIn o el Sharing Debugger de Facebook.
 - Los datos estructurados de `index.html` declaran el correo `hola@cognytia.mx`; Carlos confirmó que existe y es correcto.
-- `npm run lint` marca `'motion' is defined but never used` en archivos que usan `<motion.div>`. Es un falso positivo de la configuración de ESLint que ya existía; no afecta la compilación. (En la rama del rediseño ya no aparece: no usa framer-motion.)
+- `npm run lint` marca `'motion' is defined but never used` en archivos que usan `<motion.div>`. Es un falso positivo de la configuración de ESLint que ya existía; no afecta la compilación. (Desde el rediseño ya no aparece: el sitio no usa framer-motion.)
