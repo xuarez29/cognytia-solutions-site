@@ -51,6 +51,7 @@ Cambio solo de color sobre el rediseño "Human-Centered Industrial"; sin cambios
 - **Botones:** el principal (`.btn--solid`) y "Hablemos" del menú son teal con texto y borde en teal profundo; al pasar el cursor se invierten. El botón flotante de WhatsApp sigue oscuro.
 - **Contraste:** el teal `#00C4BA` da 2:1 sobre el lienzo claro, así que no se usa para texto pequeño ahí; sobre el oscuro da 6:1.
 - La página del curso de conservadores no se tocó.
+- **Imágenes de `public/`** (PR aparte, mismo día): `logo-hero.png` regenerado desde la geometría del isotipo con `#00A69C` y `#008F87`; `favicon-256x256.png` invertido (isotipo blanco sobre cuadro `#00A69C`, sin esquinas redondeadas porque también es el ícono de iPhone) para que se vea en la pestaña; `og-image.jpg` rehecha con el sistema visual actual (antes era del diseño viejo, fondo azul). Se generaron con HTML/SVG y Chrome en modo headless; no hay script en el repo. Las apps de mensajería pueden tardar en mostrar la vista previa nueva.
 
 ### 15 nov 2026 (rediseño "Human-Centered Industrial", PR #26, publicado)
 
