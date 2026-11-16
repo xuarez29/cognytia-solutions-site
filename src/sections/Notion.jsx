@@ -146,22 +146,12 @@ export default function Notion() {
         <div className="frame grid grid-cols-1 lg:grid-cols-12">
           {/* Texto */}
           <div className="pad section-y lg:col-span-5 lg:border-r lg:border-line">
-            <SectionHead id="notion-titulo" label="Especialización / Notion" title="Un espacio de trabajo conectado." />
+            <SectionHead id="notion-titulo" label="Notion a la medida" title="Tu empresa, mejor conectada." />
             <Reveal delay={0.1}>
-              <p className="mono mt-6 text-[11.5px] uppercase tracking-[0.08em] text-ink-soft">
-                Implementación y consultoría especializada en Notion
-              </p>
               <p className="lead mt-8 max-w-[44ch]">
-                Cuando la información de una empresa está dispersa entre documentos, hojas de cálculo,
-                conversaciones y diferentes plataformas, trabajar y tomar decisiones se vuelve más complicado.
-              </p>
-              <p className="mt-4 max-w-[44ch] text-ink-soft">
-                Diseñamos e implementamos entornos de trabajo en Notion que ayudan a organizar tu operación,
-                centralizar el conocimiento y conectar a tu equipo.
-              </p>
-              <p className="mt-4 max-w-[44ch] text-ink-soft">
-                Incorporamos automatizaciones e inteligencia artificial cuando aportan valor a tu forma de
-                trabajar.
+                Transformamos Notion en un espacio de trabajo personalizado que integra la información, los
+                procesos y el conocimiento de tu empresa, incorporando automatizaciones e inteligencia
+                artificial.
               </p>
             </Reveal>
 
@@ -175,7 +165,7 @@ export default function Notion() {
             </ul>
 
             <a href="#contacto" className="btn btn--solid mt-10">
-              Hablemos de tu implementación
+              Hablemos de tu proyecto
               <ArrowRight />
             </a>
           </div>

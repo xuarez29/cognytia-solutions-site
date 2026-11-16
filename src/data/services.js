@@ -45,14 +45,14 @@ export const services = [
   {
     tag: '04',
     figure: 'notion',
-    title: 'Implementación y consultoría Notion',
+    title: 'Notion a la medida',
     tagline: 'Tu negocio, mejor organizado.',
     description: [
-      'Diseñamos e implementamos espacios de trabajo digitales en Notion que conectan proyectos, documentos, clientes, procesos y conocimiento empresarial.',
-      'Adaptamos la plataforma a la forma en que trabaja tu empresa, no al revés.',
+      'Diseñamos e implementamos espacios de trabajo que conectan tus proyectos, documentos, equipos y procesos en un mismo lugar.',
+      'Adaptamos Notion a tu forma de trabajar, no al revés.',
     ],
     stack: ['Notion', 'Notion AI', 'Automatizaciones'],
     href: '#notion',
-    hrefLabel: 'Ver la especialización',
+    hrefLabel: 'Conoce más',
   },
 ]

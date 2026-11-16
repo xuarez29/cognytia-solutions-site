@@ -5,7 +5,7 @@ const index = [
   { n: '01', label: 'Desarrollo web y aplicaciones', href: '#servicios' },
   { n: '02', label: 'Integraciones con IA', href: '#servicios' },
   { n: '03', label: 'Automatización de procesos', href: '#servicios' },
-  { n: '04', label: 'Implementación y consultoría Notion', href: '#notion' },
+  { n: '04', label: 'Notion a la medida', href: '#notion' },
 ]
 
 export default function Hero() {

@@ -51,6 +51,7 @@ Actualización del mensaje del sitio a partir del documento "Propuesta de actual
 - **Figura nueva:** `NotionSpace` en `ServiceFigure.jsx` (bloques sobre una base), para la fila del cuarto servicio.
 - **`SectionHead`** pinta en teal el punto final del titular cuando el título termina en punto.
 - **Formulario:** opciones nuevas (Notion, Capacitación, "Tengo una idea y quiero explorarla", Otro); "Correo electrónico"; botón "Hablemos de tu proyecto". Los campos que recibe Formspree no cambiaron de nombre.
+- **Notion (segunda ronda, mismo día):** el servicio se llama «Notion a la medida» en la tarjeta, el índice del hero, el formulario y el JSON-LD; la sección dedicada lleva el titular "Tu empresa, mejor conectada.", un solo párrafo y cinco beneficios. No usar la palabra «especialización» para Notion.
 - **Regla de Carlos:** no usar "diagnóstico gratuito", "consulta gratuita" ni "llamada gratuita" como argumento comercial.
 - **Metadatos:** título, descripción, Open Graph, Twitter y JSON-LD con el mensaje nuevo; canonical y URLs sin cambio.
 - **No se hizo:** la sección de Capacitación en la página principal (el documento la deja opcional y la decisión del 28 oct fue mantener el curso aparte); sigue el enlace "Cursos" del menú. La página del curso no se tocó.

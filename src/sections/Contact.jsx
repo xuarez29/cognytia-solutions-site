@@ -8,7 +8,7 @@ const serviceOptions = [
   { value: 'web', label: 'Desarrollo web y aplicaciones' },
   { value: 'ia', label: 'Integraciones con IA' },
   { value: 'auto', label: 'Automatización de procesos' },
-  { value: 'notion', label: 'Implementación y consultoría Notion' },
+  { value: 'notion', label: 'Notion a la medida' },
   { value: 'capacitacion', label: 'Capacitación' },
   { value: 'idea', label: 'Tengo una idea y quiero explorarla' },
   { value: 'otro', label: 'Otro' },

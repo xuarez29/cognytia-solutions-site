@@ -1,6 +1,6 @@
 /**
  * notion.js
- * Áreas de implementación y beneficios de la especialización en Notion.
+ * Áreas de implementación y beneficios del servicio «Notion a la medida».
  *
  * `id` elige el esquema que se dibuja en la vista del espacio de trabajo
  * (ver sections/Notion.jsx).
@@ -46,9 +46,9 @@ export const capabilities = [
 ]
 
 export const reasons = [
-  'Información centralizada y organizada.',
-  'Menos tiempo buscando documentos y datos.',
-  'Mayor visibilidad de proyectos, pendientes y responsabilidades.',
-  'Conocimiento que permanece en la empresa.',
-  'Herramientas que evolucionan con tu operación.',
+  'Centraliza tu información y conocimiento.',
+  'Organiza proyectos, tareas y responsabilidades.',
+  'Conecta equipos y procesos.',
+  'Automatiza tareas repetitivas.',
+  'Aprovecha la inteligencia artificial en tu trabajo diario.',
 ]
