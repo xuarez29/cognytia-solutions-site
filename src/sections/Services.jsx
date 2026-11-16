@@ -1,81 +1,51 @@
-import { motion } from 'framer-motion'
-import FadeUp, { FadeUpGroup, FadeUpItem } from '../components/FadeUp'
-import { LogoWatermark } from '../components/LogoSVG'
+import Reveal from '../components/Reveal'
+import SectionHead from '../components/SectionHead'
+import ServiceFigure from '../components/ServiceFigure'
 import { services } from '../data/services'
-
-function ServiceCard({ service, index }) {
-  const Icon = service.icon
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.12 }}
-      className="group relative card-base p-8 flex flex-col gap-5 overflow-hidden cursor-default"
-    >
-      {/* Left teal border on hover */}
-      <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-brand-primary scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out origin-bottom rounded-full" />
-
-      {/* Tag */}
-      <span className="font-mono text-[11px] text-brand-primary tracking-widest">
-        {service.tag}
-      </span>
-
-      {/* Icon */}
-      <div className="w-11 h-11 rounded-xl border border-[rgba(61,188,184,0.2)] flex items-center justify-center bg-[rgba(61,188,184,0.04)] group-hover:bg-[rgba(61,188,184,0.08)] transition-colors duration-300">
-        <Icon size={20} className="text-brand-primary" strokeWidth={1.5} />
-      </div>
-
-      {/* Content */}
-      <div className="flex flex-col gap-2">
-        <h3 className="font-heading font-medium text-[18px] text-brand-text leading-snug">
-          {service.title}
-        </h3>
-        <p className="text-brand-text-secondary text-[14px] leading-relaxed">
-          {service.description}
-        </p>
-      </div>
-
-      {/* Stack hint */}
-      <div className="mt-auto pt-4 border-t border-[rgba(61,188,184,0.1)]">
-        <span className="font-mono text-[11px] text-brand-text-secondary tracking-wide">
-          {service.detail}
-        </span>
-      </div>
-    </motion.div>
-  )
-}
 
 export default function Services() {
   return (
-    <section id="servicios" className="relative bg-brand-bg-cold section-padding overflow-hidden">
-      {/* Watermark */}
-      <LogoWatermark className="absolute -right-16 top-1/2 -translate-y-1/2 w-64 opacity-[0.04] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <FadeUp className="mb-14">
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-            <div>
-              <span className="font-mono text-[11px] text-brand-primary tracking-widest uppercase mb-3 block">
-                Servicios
-              </span>
-              <h2 className="section-title">
-                Lo que construimos
-              </h2>
-              <p className="text-brand-text-secondary text-[15px] max-w-md mt-2">
-                Tres áreas de enfoque. Una misión: que tu negocio crezca con tecnología que funciona.
-              </p>
-            </div>
+    <section id="servicios" aria-labelledby="servicios-titulo">
+      <div className="shell">
+        <div className="frame">
+          <div className="pad section-y grid grid-cols-1 gap-10 lg:grid-cols-12">
+            <SectionHead id="servicios-titulo" label="Servicios" title="Lo que construimos" className="lg:col-span-8" />
+            <Reveal as="p" delay={0.1} className="lead self-end lg:col-span-4">
+              Tres áreas de enfoque. Una misión: que tu negocio crezca con tecnología que funciona.
+            </Reveal>
           </div>
-        </FadeUp>
 
-        {/* Cards grid */}
-        <div className="grid md:grid-cols-3 gap-5">
-          {services.map((service, i) => (
-            <ServiceCard key={i} service={service} index={i} />
-          ))}
+          <ol>
+            {services.map((s) => (
+              <Reveal
+                as="li"
+                key={s.tag}
+                className="svc-row grid grid-cols-[minmax(0,1fr)_auto] border-t border-line lg:grid-cols-12"
+              >
+                <span className="joint" style={{ left: 0, top: 0 }} aria-hidden="true" />
+
+                <div className="pad pb-0 lg:col-span-5 lg:pb-[var(--pad)]">
+                  <p className="mono mb-5 text-ink-soft lg:mb-16">{s.tag} / 03</p>
+                  <h3 className="h3 max-w-[12ch]">{s.title}</h3>
+                </div>
+
+                <div className="blueprint h-[150px] w-[150px] self-start border-b border-l border-line p-3 xs:h-[190px] xs:w-[190px] lg:order-last lg:col-span-3 lg:h-auto lg:min-h-[260px] lg:w-auto lg:self-stretch lg:border-b-0 lg:p-6">
+                  <ServiceFigure name={s.figure} />
+                </div>
+
+                <div className="pad col-span-2 flex flex-col justify-between gap-8 lg:col-span-4">
+                  <p className="max-w-[40ch] text-[17px] leading-[1.55] text-ink-soft">{s.description}</p>
+                  <ul className="flex flex-wrap gap-2" aria-label="Tecnologías">
+                    {s.stack.map((t) => (
+                      <li key={t} className="mono border border-line px-2.5 py-1 text-[11.5px] text-ink-soft">
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

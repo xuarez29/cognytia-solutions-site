@@ -1,23 +1,28 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import { Analytics } from '@vercel/analytics/react'
 
 // ── Fuentes auto-hospedadas (sin petición a Google) ─────────────────
-import '@fontsource-variable/dm-sans/wght.css'         // normal: 100–900
-import '@fontsource-variable/dm-sans/wght-italic.css'  // italic: 100–900
-import '@fontsource-variable/inter/wght.css'            // normal: 100–900
-import '@fontsource-variable/jetbrains-mono/wght.css'   // normal: 100–800
+import '@fontsource-variable/dm-sans/wght.css'        // DM Sans: logotipo, títulos y texto
+import '@fontsource-variable/jetbrains-mono/wght.css' // JetBrains Mono: etiquetas técnicas
 
 import './index.css'
 import App from './App.jsx'
 import { initGA } from './lib/analytics'
 
-// Inicializa GA4 (no-op si VITE_GA_MEASUREMENT_ID está vacío)
+// Inicializa GA4 (solo mide en el dominio de producción)
 initGA()
 
-createRoot(document.getElementById('root')).render(
+const root = document.getElementById('root')
+const app = (
   <StrictMode>
     <App />
     <Analytics />
-  </StrictMode>,
+  </StrictMode>
 )
+
+// `npm run build` deja el HTML ya renderizado dentro de #root (ver
+// scripts/prerender.js); en ese caso React lo hidrata. En desarrollo,
+// o si el prerender no corrió, se monta desde cero.
+if (root.hasChildNodes()) hydrateRoot(root, app)
+else createRoot(root).render(app)

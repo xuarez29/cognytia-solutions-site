@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon-256x256.png" />
+    <link rel="apple-touch-icon" href="/favicon-256x256.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Marca que hay JS antes de pintar: activa las animaciones de entrada.
+         Sin JS, todo el contenido queda visible. -->
+    <script>document.documentElement.classList.add('js')</script>
 
     <!-- SEO -->
     <title>CognytIA Solutions — Especialistas en integración de IA</title>
@@ -36,6 +40,7 @@
 
     <!-- Theme color -->
     <meta name="theme-color" content="#3DBCB8" />
+    <meta name="color-scheme" content="light" />
 
     <!-- JSON-LD: Datos estructurados -->
     <script type="application/ld+json">
@@ -49,6 +54,7 @@
           "url": "https://www.cognytia.mx/",
           "logo": "https://www.cognytia.mx/favicon-256x256.png",
           "description": "Desarrollamos soluciones web, integramos inteligencia artificial y automatizamos procesos para que emprendedores y PyMEs crezcan con propósito.",
+          "slogan": "IA con propósito",
           "email": "hola@cognytia.mx",
           "foundingLocation": {
             "@type": "Place",
@@ -66,7 +72,17 @@
           ],
           "sameAs": [
             "https://www.linkedin.com/company/cognytia"
-          ]
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Servicios de CognytIA",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desarrollo web", "description": "Sitios y plataformas rápidas, escalables y con diseño que convierte." } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Integraciones con IA", "description": "Conectamos modelos de lenguaje, visión y predicción a tus productos." } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Automatización de procesos", "description": "Identificamos cuellos de botella y los eliminamos con flujos inteligentes." } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Notion para empresas", "description": "Diseñamos, implementamos y escalamos espacios de trabajo en Notion + IA." } }
+            ]
+          }
         },
         {
           "@type": "WebSite",

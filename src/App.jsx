@@ -1,91 +1,58 @@
-import { lazy, Suspense } from 'react'
 import ErrorBoundary from './components/ErrorBoundary'
-
-// ── Carga inmediata: above the fold ────────────────────────────────
-import Navbar   from './components/Navbar'
-import Hero     from './sections/Hero'
+import Navbar from './components/Navbar'
+import Ruler from './components/Ruler'
+import WhatsAppButton from './components/WhatsAppButton'
+import Hero from './sections/Hero'
+import Approach from './sections/Approach'
 import Services from './sections/Services'
+import Notion from './sections/Notion'
+import Process from './sections/Process'
+import Projects from './sections/Projects'
+import Metrics from './sections/Metrics'
+import Testimonials from './sections/Testimonials'
+import Contact from './sections/Contact'
+import Footer from './sections/Footer'
 
-// ── Carga diferida: below the fold ─────────────────────────────────
-const Notion         = lazy(() => import('./sections/Notion'))
-const Process        = lazy(() => import('./sections/Process'))
-const Projects       = lazy(() => import('./sections/Projects'))
-const Metrics        = lazy(() => import('./sections/Metrics'))
-const Testimonials   = lazy(() => import('./sections/Testimonials'))
-const Contact        = lazy(() => import('./sections/Contact'))
-const Footer         = lazy(() => import('./sections/Footer'))
-const WhatsAppButton = lazy(() => import('./components/WhatsAppButton'))
-
-// Placeholder animado mientras llega el chunk JS
-function SectionSkeleton({ height = 'h-40' }) {
-  return (
-    <div
-      className={`w-full ${height} bg-brand-bg-cold animate-pulse`}
-      aria-hidden="true"
-    />
-  )
-}
+// Orden de la página. Cada bloque va en su propio ErrorBoundary para que
+// un fallo en una sección no tumbe el resto del sitio.
+const sections = [
+  { id: 'hero', Component: Hero },
+  { id: 'approach', Component: Approach, index: '02', label: 'Enfoque' },
+  { id: 'services', Component: Services, index: '03', label: 'Servicios' },
+  { id: 'notion', Component: Notion, index: '04', label: 'Notion' },
+  { id: 'process', Component: Process, index: '05', label: 'Proceso' },
+  { id: 'projects', Component: Projects, index: '06', label: 'Proyectos' },
+  { id: 'metrics', Component: Metrics, index: '07', label: 'Resultados' },
+  { id: 'testimonials', Component: Testimonials },
+  { id: 'contact', Component: Contact, index: '08', label: 'Contacto' },
+]
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-brand-bg font-body">
-      <ErrorBoundary><Navbar /></ErrorBoundary>
+    <>
+      <ErrorBoundary>
+        <Navbar />
+      </ErrorBoundary>
 
-      <main>
-        {/* Above the fold — sin lazy */}
-        <ErrorBoundary><Hero /></ErrorBoundary>
-        <ErrorBoundary><Services /></ErrorBoundary>
-
-        {/* Below the fold — lazy + Suspense */}
-        <ErrorBoundary>
-          <Suspense fallback={<SectionSkeleton height="h-96" />}>
-            <Notion />
-          </Suspense>
-        </ErrorBoundary>
-
-        <ErrorBoundary>
-          <Suspense fallback={<SectionSkeleton height="h-64" />}>
-            <Process />
-          </Suspense>
-        </ErrorBoundary>
-
-        <ErrorBoundary>
-          <Suspense fallback={<SectionSkeleton height="h-96" />}>
-            <Projects />
-          </Suspense>
-        </ErrorBoundary>
-
-        <ErrorBoundary>
-          <Suspense fallback={<SectionSkeleton height="h-48" />}>
-            <Metrics />
-          </Suspense>
-        </ErrorBoundary>
-
-        <ErrorBoundary>
-          <Suspense fallback={<SectionSkeleton height="h-64" />}>
-            <Testimonials />
-          </Suspense>
-        </ErrorBoundary>
-
-        <ErrorBoundary>
-          <Suspense fallback={<SectionSkeleton height="h-96" />}>
-            <Contact />
-          </Suspense>
-        </ErrorBoundary>
+      <main id="contenido">
+        {sections.map((s) => {
+          const Section = s.Component
+          return (
+            <ErrorBoundary key={s.id}>
+              {s.index && <Ruler index={s.index} label={s.label} />}
+              <Section />
+            </ErrorBoundary>
+          )
+        })}
       </main>
 
       <ErrorBoundary>
-        <Suspense fallback={<SectionSkeleton height="h-32" />}>
-          <Footer />
-        </Suspense>
+        <Footer />
       </ErrorBoundary>
 
-      {/* WhatsApp: sin skeleton — aparece silenciosamente */}
       <ErrorBoundary>
-        <Suspense fallback={null}>
-          <WhatsAppButton />
-        </Suspense>
+        <WhatsAppButton />
       </ErrorBoundary>
-    </div>
+    </>
   )
 }

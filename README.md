@@ -7,9 +7,9 @@ Para el historial de cambios, decisiones y pendientes, lee [`MEMORY.md`](./MEMOR
 ## Stack
 
 - [React 19](https://react.dev) + [Vite 7](https://vite.dev)
-- [Tailwind CSS 3](https://tailwindcss.com) con colores de marca en `tailwind.config.js`
-- [framer-motion](https://motion.dev) para animaciones y [lucide-react](https://lucide.dev) para íconos
-- Fuentes auto-hospedadas: DM Sans, Inter y JetBrains Mono
+- [Tailwind CSS 3](https://tailwindcss.com) con la paleta de marca en `tailwind.config.js` y el sistema visual en `src/index.css`
+- Animaciones con CSS y un par de hooks propios (sin librerías de animación ni de íconos)
+- Fuentes auto-hospedadas: DM Sans (logotipo, títulos y texto) y JetBrains Mono (etiquetas)
 - Hospedado en [Vercel](https://vercel.com), con Vercel Web Analytics y Google Analytics 4
 
 ## Desarrollo
@@ -19,7 +19,7 @@ Requiere Node 20 o superior.
 ```bash
 npm install
 npm run dev       # servidor local en http://localhost:5173
-npm run build     # compila a dist/
+npm run build     # compila a dist/ y deja el HTML ya renderizado (ver "Prerender")
 npm run preview   # sirve la versión compilada
 npm run lint
 ```
@@ -28,19 +28,38 @@ npm run lint
 
 ```
 src/
-├── App.jsx              # orden de secciones; las de abajo se cargan diferidas
-├── main.jsx             # entrada: fuentes, GA4 y Vercel Analytics
-├── sections/            # Hero, Services, Notion, Process, Projects, Metrics,
-│                        # Testimonials, Contact, Footer
-├── components/          # Navbar, LogoAnimation, WhatsAppButton, FadeUp, …
-├── data/                # textos y listas de cada sección
+├── App.jsx              # orden de las secciones
+├── main.jsx             # entrada del navegador: fuentes, GA4 y Vercel Analytics
+├── entry-server.jsx     # entrada para el prerender
+├── index.css            # sistema visual: variables, retícula, tipografía, botones
+├── sections/            # Hero, Approach, Services, Notion, Process, Projects,
+│                        # Metrics, Testimonials, Contact, Footer
+├── components/          # Navbar, LogoAnimation, LogoMark, Ruler, Reveal,
+│                        # figuras isométricas (ServiceFigure, ProcessFigure), …
+├── data/                # textos y listas de cada sección; geometría del logo
 ├── config/contact.js    # correo, WhatsApp y Formspree
-├── lib/analytics.js     # GA4 (solo mide en el dominio de producción)
-└── hooks/
-public/                  # imágenes, og-image.jpg, robots.txt, sitemap.xml
+├── lib/                 # analytics.js (GA4) e iso.js (proyección isométrica)
+└── hooks/               # useInView, useScrollProgress
+scripts/prerender.js     # inserta el HTML renderizado en dist/index.html
+public/                  # og-image.jpg, robots.txt, sitemap.xml y la página del curso
 ```
 
 Para cambiar textos de servicios, proyectos, proceso o testimonios, edita el archivo correspondiente en `src/data/`.
+
+## Sistema visual
+
+Dirección "Human-Centered Industrial": lienzo claro, retícula visible, titulares editoriales, etiquetas en mono y los nodos del isotipo como señal recurrente (cruces de la retícula, viñetas, estados activos).
+
+- Los colores corporativos no cambiaron: teal `#3DBCB8`, oscuro `#0A2E2E`, gris del logotipo `#606B77`. Están como variables en `src/index.css` y como colores de Tailwind (`teal`, `teal-deep`, `ink`, `paper`, `line`…).
+- La animación del logo (`components/LogoAnimation.jsx`) y su geometría (`data/logoGeometry.js`) son las originales; el hero solo las enmarca.
+- Dentro de `.theme-dark` las variables se invierten solas (se usa en la franja de resultados).
+- Todas las animaciones respetan "reducir movimiento" y, sin JavaScript, el contenido queda visible.
+
+## Prerender
+
+`npm run build` hace tres pasos: compila el sitio (`dist/`), compila la misma app para Node (`dist-ssr/`, temporal) y ejecuta `scripts/prerender.js`, que escribe el HTML de la página dentro de `dist/index.html`. Así buscadores y vistas previas de enlaces reciben el contenido sin ejecutar JavaScript, y el texto aparece antes de que cargue React, que luego lo hidrata.
+
+Regla al escribir componentes: no usar `window` ni `document` durante el render (solo dentro de `useEffect` o de manejadores de eventos).
 
 ## Configuración
 

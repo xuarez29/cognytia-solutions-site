@@ -1,47 +1,47 @@
-import { Search, LayoutDashboard, Users, Database, LineChart, Sparkles } from 'lucide-react'
-
 /**
  * notion.js
  * Capacidades y beneficios del servicio Notion para empresas.
+ *
+ * `id` elige el esquema que se dibuja en la vista del espacio de trabajo
+ * (ver sections/Notion.jsx).
  */
 
 export const capabilities = [
   {
-    icon: Database,
+    id: 'wiki',
     title: 'Wiki corporativa',
     description:
       'Políticas, manuales, SOPs y documentación crítica centralizada y siempre actualizada.',
   },
   {
-    icon: LayoutDashboard,
+    id: 'board',
     title: 'Gestión de proyectos y tareas',
     description:
       'Tableros, timelines, vistas personalizadas y flujos que reflejan tu metodología real.',
   },
   {
-    icon: Users,
+    id: 'crm',
     title: 'CRM y pipeline de ventas',
     description:
       'Embudos conectados con acciones, clientes y métricas que se mueven con tu negocio.',
   },
   {
-    icon: Search,
+    id: 'db',
     title: 'Bases de datos relacionales',
     description:
       'Proyectos, clientes, procesos y OKRs vinculados entre sí. Todo en un solo lugar.',
   },
   {
-    icon: LineChart,
+    id: 'dash',
     title: 'Dashboards ejecutivos',
     description:
       'Indicadores clave, progreso y prioridades visibles para quien toma decisiones.',
   },
   {
-    icon: Sparkles,
+    id: 'ai',
     title: 'IA aplicada al trabajo diario',
     description:
       'Búsqueda empresarial instantánea, notas de reuniones automáticas y asistentes de tareas que transforman tu operación digital.',
-    highlight: true,
     cta: 'Agenda un diagnóstico gratuito',
   },
 ]

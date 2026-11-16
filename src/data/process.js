@@ -1,36 +1,35 @@
-import { Search, Layers, Code2, TrendingUp } from 'lucide-react'
-
 /**
  * process.js
- * Los 4 pasos del proceso de trabajo de Cognytia.
+ * Los 4 pasos del proceso de trabajo de CognytIA.
+ * `note` es la etiqueta técnica que acompaña a la figura de cada paso.
  */
 
 export const steps = [
   {
     number: '01',
-    icon: Search,
     title: 'Diagnóstico',
+    note: 'Medimos el proceso actual',
     description:
       'Entendemos tu negocio, no solo el proyecto. Empezamos con preguntas incómodas y honestas.',
   },
   {
     number: '02',
-    icon: Layers,
     title: 'Arquitectura',
+    note: 'Trazamos la solución',
     description:
       'Diseñamos la solución antes de escribir una línea de código. Sin sorpresas a mitad del camino.',
   },
   {
     number: '03',
-    icon: Code2,
     title: 'Construcción',
+    note: 'Entregas visibles cada semana',
     description:
       'Desarrollo iterativo con entregas visibles cada semana. Siempre sabes en qué estamos.',
   },
   {
     number: '04',
-    icon: TrendingUp,
     title: 'Escala',
+    note: 'Lanzamos, medimos y mejoramos',
     description:
       'Lanzamos, medimos y mejoramos contigo. El lanzamiento es el inicio, no el final.',
   },
