@@ -36,22 +36,15 @@ export default function About() {
               delay={0.1}
               className="blueprint border-t border-line pad lg:col-span-5 lg:border-t-0 lg:py-[clamp(40px,5vw,72px)]"
             >
-              <p className="label mb-6">
-                <span className="node node--hollow" aria-hidden="true" />
-                Sobre el fundador
-              </p>
-              <h3 className="text-[1.5rem] leading-tight tracking-[-0.025em]">Carlos Juárez</h3>
-              <p className="mono mt-2 text-[11.5px] uppercase tracking-[0.08em] text-ink-soft">
-                Fundador de CognytIA
-              </p>
+              <h3 className="max-w-[16ch] text-[clamp(1.5rem,2.2vw,1.9rem)] leading-[1.12] tracking-[-0.03em]">
+                Entender antes de construir<span className="text-teal">.</span>
+              </h3>
               <p className="mt-6 max-w-[46ch] text-[15.5px] leading-[1.6] text-ink-soft">
-                Ingeniero bioquímico, maestro en biotecnología y doctor en biología molecular y genética. Cuenta
-                con experiencia profesional en investigación, industria y gestión de proyectos técnicos.
+                Combinamos pensamiento científico, experiencia empresarial y tecnología para comprender problemas
+                complejos y convertirlos en soluciones prácticas.
               </p>
               <p className="mt-4 max-w-[46ch] text-[15.5px] leading-[1.6] text-ink-soft">
-                Su trayectoria aporta a CognytIA una perspectiva multidisciplinaria, donde el análisis, la
-                experimentación y la aplicación práctica de la tecnología forman parte de una misma manera de
-                trabajar.
+                Creemos en la innovación que genera valor, no en la tecnología por sí misma.
               </p>
             </Reveal>
           </div>

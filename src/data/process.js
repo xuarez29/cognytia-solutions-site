@@ -32,10 +32,10 @@ export const steps = [
   },
   {
     number: '04',
-    title: 'Evolucionamos',
-    note: 'Implementamos, evaluamos y mejoramos',
+    title: 'Optimizamos',
+    note: 'Ponemos en marcha, evaluamos y ajustamos',
     description:
-      'Implementamos la solución, evaluamos su funcionamiento e identificamos oportunidades de mejora.',
-    result: 'Una herramienta funcional y preparada para evolucionar con tu negocio.',
+      'Ponemos en marcha la solución, evaluamos su desempeño y realizamos ajustes para maximizar su utilidad.',
+    result: 'Una solución funcional, confiable y preparada para crecer con tu negocio.',
   },
 ]
