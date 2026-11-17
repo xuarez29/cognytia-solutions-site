@@ -2,13 +2,12 @@ import { useRef } from 'react'
 import Reveal from '../components/Reveal'
 import { useScrollProgress } from '../hooks/useScrollProgress'
 
-const statement =
-  'Primero entendemos tu proceso. Luego diseñamos la solución adecuada. Tecnología que le quita carga a tu equipo y le da claridad a tu negocio: IA útil, no IA por moda.'
+const statement = 'Primero el problema. Después la tecnología.'
 
 const principles = [
   { n: 'A', title: 'Práctico', text: 'Partimos de cómo trabajas hoy, no de la tecnología de moda.' },
-  { n: 'B', title: 'Eficiente', text: 'Automatizamos lo repetitivo para que tu equipo haga lo que importa.' },
-  { n: 'C', title: 'Medible', text: 'Cada proyecto tiene un antes y un después que se puede medir.' },
+  { n: 'B', title: 'Eficiente', text: 'Simplificamos procesos y automatizamos lo repetitivo para que tu equipo pueda concentrarse en lo que realmente importa.' },
+  { n: 'C', title: 'Medible', text: 'Diseñamos soluciones con objetivos claros y resultados que podemos evaluar.' },
 ]
 
 export default function Approach() {
@@ -42,12 +41,25 @@ export default function Approach() {
           <div className="lg:col-span-9">
             <p
               ref={ref}
-              className="pad py-[clamp(48px,8vw,120px)] text-[clamp(1.75rem,4.3vw,3.75rem)] leading-[1.08] tracking-[-0.035em]"
+              className="pad pb-0 pt-[clamp(48px,8vw,120px)] text-[clamp(2rem,4.8vw,4.25rem)] leading-[1.04] tracking-[-0.04em]"
             >
               {words.map((w, i) => (
                 <span key={i}>{w} </span>
               ))}
             </p>
+
+            <Reveal className="pad pb-[clamp(48px,8vw,120px)] pt-[clamp(28px,4vw,48px)]">
+              <p className="lead max-w-[46ch]">
+                Primero entendemos cómo funciona tu negocio. Después diseñamos la solución adecuada.
+              </p>
+              <p className="mt-4 max-w-[52ch] text-ink-soft">
+                Creemos en la tecnología que simplifica procesos, amplía las capacidades de las personas y genera
+                resultados tangibles.
+              </p>
+              <p className="mt-6 text-[clamp(1.15rem,1.6vw,1.4rem)] tracking-[-0.02em]">
+                IA útil, no IA por moda<span className="text-teal">.</span>
+              </p>
+            </Reveal>
 
             <ul className="grid grid-cols-1 border-t border-line sm:grid-cols-3">
               {principles.map((p, i) => (

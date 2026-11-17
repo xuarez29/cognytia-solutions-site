@@ -3,8 +3,8 @@ import { P, pts, line } from '../lib/iso'
 
 /**
  * Ilustraciones isométricas de los servicios. Son objetos abstractos:
- * capas (web), un núcleo conectado (IA) y una línea de proceso
- * (automatización). Al pasar el cursor sobre la fila, las piezas se separan.
+ * capas (web), un núcleo conectado (IA), una línea de proceso
+ * (automatización) y bloques sobre una misma base (Notion). Al pasar el cursor sobre la fila, las piezas se separan.
  */
 
 function Web() {
@@ -114,7 +114,26 @@ function Auto() {
   )
 }
 
-const figures = { web: Web, ia: Ia, auto: Auto }
+function NotionSpace() {
+  return (
+    <svg className="iso h-full w-full" viewBox="-125 -128 250 205" aria-hidden="true">
+      <IsoBox x={-62} y={-62} z={0} w={124} d={124} h={6} />
+      <line className="thin" {...line(P(0, -62, 6), P(0, 62, 6))} />
+      <line className="thin" {...line(P(-62, 0, 6), P(62, 0, 6))} />
+      {/* Bloques de información sobre una misma base */}
+      <IsoBox x={-50} y={-50} z={6} w={42} d={42} h={30} />
+      <g className="iso-part lift-1">
+        <IsoBox x={8} y={-50} z={6} w={42} d={42} h={14} />
+        <IsoBox x={-50} y={8} z={6} w={42} d={42} h={20} />
+      </g>
+      <g className="iso-part lift-2">
+        <IsoBox x={8} y={8} z={6} w={42} d={42} h={42} tone="teal" />
+      </g>
+    </svg>
+  )
+}
+
+const figures = { web: Web, ia: Ia, auto: Auto, notion: NotionSpace }
 
 export default function ServiceFigure({ name }) {
   const Figure = figures[name]

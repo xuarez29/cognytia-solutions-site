@@ -18,7 +18,8 @@ export default function Footer() {
                 <p className="text-[clamp(1.8rem,3vw,2.6rem)] leading-none tracking-[-0.04em]">
                   IA con propósito<span className="text-teal">.</span>
                 </p>
-                <p className="mono mt-4 text-ink-soft">Especialistas en integración de IA</p>
+                <p className="mono mt-4 text-ink-soft">Soluciones digitales e inteligencia artificial</p>
+                <p className="mono mt-1.5 text-ink-soft">Querétaro, México</p>
               </div>
             </div>
 
@@ -52,7 +53,7 @@ export default function Footer() {
                     onClick={() => trackEvent('whatsapp_click', { source: 'footer' })}
                     className="underline-offset-4 hover:underline"
                   >
-                    WhatsApp
+                    Hablemos por WhatsApp
                   </a>
                 </li>
                 {socials.map((s) => {

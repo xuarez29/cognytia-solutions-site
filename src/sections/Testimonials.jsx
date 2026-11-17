@@ -42,10 +42,10 @@ export default function Testimonials() {
             <div className="lg:sticky lg:top-[calc(var(--nav-h)+var(--pad))]">
               <p className="label mb-6">
                 <span className="node" aria-hidden="true" />
-                Testimonios
+                Experiencias
               </p>
               <h2 id="testimonios-titulo" className="max-w-[14ch] text-[clamp(1.6rem,2.4vw,2.1rem)] leading-[1.08] tracking-[-0.03em]">
-                Lo que dicen quienes confían en nosotros
+                En palabras de nuestros clientes<span className="text-teal">.</span>
               </h2>
             </div>
           </div>

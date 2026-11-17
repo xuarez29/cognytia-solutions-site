@@ -9,7 +9,9 @@ import Notion from './sections/Notion'
 import Process from './sections/Process'
 import Projects from './sections/Projects'
 import Metrics from './sections/Metrics'
+import About from './sections/About'
 import Testimonials from './sections/Testimonials'
+import Faq from './sections/Faq'
 import Contact from './sections/Contact'
 import Footer from './sections/Footer'
 
@@ -23,8 +25,10 @@ const sections = [
   { id: 'process', Component: Process, index: '05', label: 'Proceso' },
   { id: 'projects', Component: Projects, index: '06', label: 'Proyectos' },
   { id: 'metrics', Component: Metrics, index: '07', label: 'Resultados' },
-  { id: 'testimonials', Component: Testimonials },
-  { id: 'contact', Component: Contact, index: '08', label: 'Contacto' },
+  { id: 'about', Component: About, index: '08', label: 'Nosotros' },
+  { id: 'testimonials', Component: Testimonials, index: '09', label: 'Experiencias' },
+  { id: 'faq', Component: Faq, index: '10', label: 'Preguntas' },
+  { id: 'contact', Component: Contact, index: '11', label: 'Contacto' },
 ]
 
 export default function App() {

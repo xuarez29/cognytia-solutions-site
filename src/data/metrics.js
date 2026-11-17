@@ -10,8 +10,8 @@
  */
 
 export const metrics = [
-  { prefix: '+', value: 25,  suffix: '',     label: 'automatizaciones implementadas en PyMEs'  },
-  { prefix: '–', value: 30,  suffix: '%',    label: 'tareas manuales promedio reducidas'        },
-  { prefix: '<', value: 45,  suffix: ' días', label: 'tiempo típico de despliegue'               },
-  { prefix: '+', value: 120, suffix: ' h',   label: 'ahorradas por proyecto en promedio'       },
+  { prefix: '+', value: 25,  suffix: '',     label: 'automatizaciones implementadas' },
+  { prefix: '–', value: 30,  suffix: '%',    label: 'de reducción promedio en tareas manuales' },
+  { prefix: '<', value: 45,  suffix: ' días', label: 'como tiempo típico de implementación' },
+  { prefix: '+', value: 120, suffix: ' h',   label: 'ahorradas por proyecto, en promedio' },
 ]
